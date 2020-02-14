@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 17:21:41 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/13 17:50:04 by mgena            ###   ########.fr       */
+/*   Created: 2020/02/13 15:57:56 by mgena             #+#    #+#             */
+/*   Updated: 2020/02/13 15:58:13 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mshheader.h"
 
-void	minishell()
+void	error(char *line)
 {
-	char *line;
-	int var;
-
-	while (1)
-	{
-		ft_printf("$>");
-		line = msh_readline();
-		if ((var = ft_strcmp(line, "exit")) == 0)
-		{
-			free(line);
-			break;
-		}
-		parse_line(line);
-	}
-}
-
-int 	main()
-{
-	minishell();
-	return 0;
+	ft_printf("%s\n", line);
+	exit(0);
 }

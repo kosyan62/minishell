@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   realloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 17:21:41 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/13 17:50:04 by mgena            ###   ########.fr       */
+/*   Created: 2020/02/13 12:15:12 by mgena             #+#    #+#             */
+/*   Updated: 2020/02/13 17:48:34 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mshheader.h"
+#include "libft.h"
 
-void	minishell()
+
+char *ft_realloc(char *str)
 {
-	char *line;
-	int var;
-
-	while (1)
-	{
-		ft_printf("$>");
-		line = msh_readline();
-		if ((var = ft_strcmp(line, "exit")) == 0)
-		{
-			free(line);
-			break;
-		}
-		parse_line(line);
-	}
-}
-
-int 	main()
-{
-	minishell();
-	return 0;
+	char *res;
+	size_t len;
+	if (str == NULL)
+		return (NULL);
+	len = ft_strlen(str) * 2;
+	res = ft_strnew(len);
+	ft_strcpy(res, str);
+	free(str);
+	return (res);
 }

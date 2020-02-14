@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 17:21:41 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/13 17:50:04 by mgena            ###   ########.fr       */
+/*   Created: 2019/09/10 14:54:33 by mgena             #+#    #+#             */
+/*   Updated: 2019/09/11 18:00:09 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mshheader.h"
+#include "libft.h"
 
-void	minishell()
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	char *line;
-	int var;
+	size_t i;
 
-	while (1)
+	i = 0;
+	while (i < len)
 	{
-		ft_printf("$>");
-		line = msh_readline();
-		if ((var = ft_strcmp(line, "exit")) == 0)
+		dst[i] = src[i];
+		if (src[i] == '\0')
 		{
-			free(line);
-			break;
+			while (i < len)
+				dst[i++] = 0;
+			break ;
 		}
-		parse_line(line);
+		i++;
 	}
-}
-
-int 	main()
-{
-	minishell();
-	return 0;
+	return (dst);
 }

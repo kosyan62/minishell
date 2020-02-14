@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   isspace.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 17:21:41 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/13 17:50:04 by mgena            ###   ########.fr       */
+/*   Created: 2020/02/13 17:02:03 by mgena             #+#    #+#             */
+/*   Updated: 2020/02/13 17:06:02 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mshheader.h"
+#include "libft.h"
 
-void	minishell()
+_Bool ft_isspace(int ch)
 {
-	char *line;
-	int var;
-
-	while (1)
-	{
-		ft_printf("$>");
-		line = msh_readline();
-		if ((var = ft_strcmp(line, "exit")) == 0)
-		{
-			free(line);
-			break;
-		}
-		parse_line(line);
-	}
-}
-
-int 	main()
-{
-	minishell();
-	return 0;
+	if (ch == ' ' || ch == '\t' || ch =='\n' || ch == '\v' || ch == '\f' || ch == '\r')
+		return (1);
+	else
+		return (0);
 }
