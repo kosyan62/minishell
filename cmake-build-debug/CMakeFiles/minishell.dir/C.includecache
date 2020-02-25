@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/libft/includes/libft.h
+unistd.h
+-
+stdlib.h
+-
+
+../includes/mshheader.h
+libft.h
+../includes/libft.h
+unistd.h
+-
+
+/Users/mgena/CLionProjects/minishell/src/command.c
+mshheader.h
+/Users/mgena/CLionProjects/minishell/src/mshheader.h
+sys/wait.h
+-
+
