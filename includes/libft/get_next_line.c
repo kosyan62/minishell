@@ -6,7 +6,7 @@
 /*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 17:46:54 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/18 12:34:56 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/04 16:22:01 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		write_line(char **to, char *from)
 
 	bytes_to_write = ft_strclen(from, '\n');
 	*to = ft_strnew(bytes_to_write + 2);
-	if (to == NULL)
+	if (*to == NULL)
 		return (-1);
 	ft_strncpy(*to, from, bytes_to_write);
 	ft_memmove(from, (&(from[bytes_to_write + 1])),
@@ -58,6 +58,11 @@ int		get_next_line(const int fd, char **line)
 	int			ret;
 	static char	*buff_fd[10240];
 
+	if (fd == -1)
+	{
+		free(*line);
+		free(buff_fd[0]);
+	}
 	if (fd < 0 || line == NULL || fd > 10239 || BUFF_SIZE < 1)
 		return (-1);
 	ret = ft_myjoin(buff_fd, fd);
