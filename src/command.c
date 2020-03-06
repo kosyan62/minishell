@@ -91,7 +91,7 @@ void	execute_command(char **command)
 	int		status;
 	char	*filename;
 
-	filename = "/bin/";
+
 	filename = ft_strjoin(filename, *command);
 	pid = fork();
 	if (pid == 0)

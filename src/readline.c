@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:19:42 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/03 21:55:00 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/04 17:42:26 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,22 @@
 char *ft_get_env(char *name)
 {
 	char *res;
+	size_t len;
+	char **dst;
 
+	len = ft_strlen(name);
+	dst = environ;
 	while (*environ != NULL && *name)
 	{
-		if (ft_strstr(*environ, name))
+		if (ft_strnstr(*environ, name, len))
 		{
 			res = ft_strchr(*environ, '=');
+			environ = dst;
 			return ft_strdup(res + 1);
 		}
 		environ++;
 	}
+	environ = dst;
 	return NULL;
 }
 
@@ -61,7 +67,7 @@ size_t get_dollr_var(char *src, char **dst)
 	if (!ft_isalpha(src[i]) && src[i] != '_')
 	{
 		*dst = ft_strnew(1);
-		return (1);
+		return (2);
 	}
 	while (src[i] && (ft_isalnum(src[i]) || src[i] == '_'))
 		i++;
@@ -85,12 +91,13 @@ void	get_dollar(char **line, size_t  i)
 	tmp[i] = '\0';
 	str[0] = ft_strdup(tmp);
 	sp = get_dollr_var(&tmp[i + 1], &str[1]);
-	str[2] = ft_strdup(&tmp[i + sp + 1]);
+	str[2] = ft_strdup(&tmp[i + sp]);
 	free(*line);
 	tmp = ft_strjoin(str[0], str[1]);
 	free(str[0]);
 	free(str[1]);
 	tmp2 = ft_strjoin(tmp, str[2]);
+	free(tmp);
 	free(str[2]);
 	*line = tmp2;
 }
@@ -118,6 +125,12 @@ char	*msh_readline()
 	line = NULL;
 	if (get_next_line(0, &line) == 0)
 		return NULL;
+	if (ft_strcmp(line, "exit") == 0)
+	{
+		get_next_line(-1, &line);
+//		free(line);
+		exit(EXIT_SUCCESS);
+	}
 	line = get_expansion(line);
 return (line);
 }

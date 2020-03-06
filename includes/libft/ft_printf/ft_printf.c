@@ -6,7 +6,7 @@
 /*   By: pkingsbl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:49:07 by pkingsbl          #+#    #+#             */
-/*   Updated: 2020/01/31 17:24:12 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/06 16:12:48 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,44 +104,6 @@ void		ft_spec_new(t_specif *spec)
 	spec->type = '\0';
 	spec->res = NULL;
 }
-int print_not_percent(const char *str, int *i)
-{
-    int len;
-
-    len = 0;
-    if (*str != '{')
-    {
-        write(1, str, 1);
-        *i = *i + 1;
-        return (1);
-    }
-    else
-    {
-        if (ft_strncmp(str, "{red}", 5) == 0)
-            ft_putstr(RED);
-        else if (!ft_strncmp(str, "{green}", 7))
-            ft_putstr(GRN);
-        else if (!ft_strncmp(str, "{yellow}", 8))
-            ft_putstr(YEL);
-        else if (!ft_strncmp(str, "{blue}", 6))
-            ft_putstr(BLU);
-        else if (!ft_strncmp(str, "{magnetic}", 10))
-            ft_putstr(MAG);
-        else if (!ft_strncmp(str, "{cyan}", 6))
-            ft_putstr(CYN);
-        else if (!ft_strncmp(str, "{white}", 7))
-            ft_putstr(WHT);
-        else if (!ft_strncmp(str, "{eoc}", 5))
-            ft_putstr(RESET);
-        else exit(0);
-        while (*str !=  '}')
-        {
-            str++;
-            len++;
-        }
-        return (len + 1);
-    }
-}
 
 int			ft_printf(const char *format, ...)
 {
@@ -156,9 +118,7 @@ int			ft_printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format != '%')
-		{
-		    format += print_not_percent(format, &i);
-		}
+			format += print_not_percent(format, &i);
 		if (*format == '%')
 		{
 			format++;

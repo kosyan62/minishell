@@ -825,6 +825,60 @@ includes/libft/ft_memset.c.s:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_memset.c.s
 .PHONY : includes/libft/ft_memset.c.s
 
+includes/libft/ft_pow.o: includes/libft/ft_pow.c.o
+
+.PHONY : includes/libft/ft_pow.o
+
+# target to build an object file
+includes/libft/ft_pow.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_pow.c.o
+.PHONY : includes/libft/ft_pow.c.o
+
+includes/libft/ft_pow.i: includes/libft/ft_pow.c.i
+
+.PHONY : includes/libft/ft_pow.i
+
+# target to preprocess a source file
+includes/libft/ft_pow.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_pow.c.i
+.PHONY : includes/libft/ft_pow.c.i
+
+includes/libft/ft_pow.s: includes/libft/ft_pow.c.s
+
+.PHONY : includes/libft/ft_pow.s
+
+# target to generate assembly for a file
+includes/libft/ft_pow.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_pow.c.s
+.PHONY : includes/libft/ft_pow.c.s
+
+includes/libft/ft_printf/colour_extra.o: includes/libft/ft_printf/colour_extra.c.o
+
+.PHONY : includes/libft/ft_printf/colour_extra.o
+
+# target to build an object file
+includes/libft/ft_printf/colour_extra.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_printf/colour_extra.c.o
+.PHONY : includes/libft/ft_printf/colour_extra.c.o
+
+includes/libft/ft_printf/colour_extra.i: includes/libft/ft_printf/colour_extra.c.i
+
+.PHONY : includes/libft/ft_printf/colour_extra.i
+
+# target to preprocess a source file
+includes/libft/ft_printf/colour_extra.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_printf/colour_extra.c.i
+.PHONY : includes/libft/ft_printf/colour_extra.c.i
+
+includes/libft/ft_printf/colour_extra.s: includes/libft/ft_printf/colour_extra.c.s
+
+.PHONY : includes/libft/ft_printf/colour_extra.s
+
+# target to generate assembly for a file
+includes/libft/ft_printf/colour_extra.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/ft_printf/colour_extra.c.s
+.PHONY : includes/libft/ft_printf/colour_extra.c.s
+
 includes/libft/ft_printf/ft_for_p.o: includes/libft/ft_printf/ft_for_p.c.o
 
 .PHONY : includes/libft/ft_printf/ft_for_p.o
@@ -2229,6 +2283,60 @@ includes/libft/get_next_line.c.s:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/get_next_line.c.s
 .PHONY : includes/libft/get_next_line.c.s
 
+includes/libft/hash_table/hash_functions.o: includes/libft/hash_table/hash_functions.c.o
+
+.PHONY : includes/libft/hash_table/hash_functions.o
+
+# target to build an object file
+includes/libft/hash_table/hash_functions.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/hash_table/hash_functions.c.o
+.PHONY : includes/libft/hash_table/hash_functions.c.o
+
+includes/libft/hash_table/hash_functions.i: includes/libft/hash_table/hash_functions.c.i
+
+.PHONY : includes/libft/hash_table/hash_functions.i
+
+# target to preprocess a source file
+includes/libft/hash_table/hash_functions.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/hash_table/hash_functions.c.i
+.PHONY : includes/libft/hash_table/hash_functions.c.i
+
+includes/libft/hash_table/hash_functions.s: includes/libft/hash_table/hash_functions.c.s
+
+.PHONY : includes/libft/hash_table/hash_functions.s
+
+# target to generate assembly for a file
+includes/libft/hash_table/hash_functions.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/hash_table/hash_functions.c.s
+.PHONY : includes/libft/hash_table/hash_functions.c.s
+
+includes/libft/hash_table/hash_init.o: includes/libft/hash_table/hash_init.c.o
+
+.PHONY : includes/libft/hash_table/hash_init.o
+
+# target to build an object file
+includes/libft/hash_table/hash_init.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o
+.PHONY : includes/libft/hash_table/hash_init.c.o
+
+includes/libft/hash_table/hash_init.i: includes/libft/hash_table/hash_init.c.i
+
+.PHONY : includes/libft/hash_table/hash_init.i
+
+# target to preprocess a source file
+includes/libft/hash_table/hash_init.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.i
+.PHONY : includes/libft/hash_table/hash_init.c.i
+
+includes/libft/hash_table/hash_init.s: includes/libft/hash_table/hash_init.c.s
+
+.PHONY : includes/libft/hash_table/hash_init.s
+
+# target to generate assembly for a file
+includes/libft/hash_table/hash_init.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.s
+.PHONY : includes/libft/hash_table/hash_init.c.s
+
 src/command.o: src/command.c.o
 
 .PHONY : src/command.o
@@ -2451,6 +2559,12 @@ help:
 	@echo "... includes/libft/ft_memset.o"
 	@echo "... includes/libft/ft_memset.i"
 	@echo "... includes/libft/ft_memset.s"
+	@echo "... includes/libft/ft_pow.o"
+	@echo "... includes/libft/ft_pow.i"
+	@echo "... includes/libft/ft_pow.s"
+	@echo "... includes/libft/ft_printf/colour_extra.o"
+	@echo "... includes/libft/ft_printf/colour_extra.i"
+	@echo "... includes/libft/ft_printf/colour_extra.s"
 	@echo "... includes/libft/ft_printf/ft_for_p.o"
 	@echo "... includes/libft/ft_printf/ft_for_p.i"
 	@echo "... includes/libft/ft_printf/ft_for_p.s"
@@ -2607,6 +2721,12 @@ help:
 	@echo "... includes/libft/get_next_line.o"
 	@echo "... includes/libft/get_next_line.i"
 	@echo "... includes/libft/get_next_line.s"
+	@echo "... includes/libft/hash_table/hash_functions.o"
+	@echo "... includes/libft/hash_table/hash_functions.i"
+	@echo "... includes/libft/hash_table/hash_functions.s"
+	@echo "... includes/libft/hash_table/hash_init.o"
+	@echo "... includes/libft/hash_table/hash_init.i"
+	@echo "... includes/libft/hash_table/hash_init.s"
 	@echo "... src/command.o"
 	@echo "... src/command.i"
 	@echo "... src/command.s"

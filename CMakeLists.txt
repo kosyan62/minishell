@@ -7,6 +7,7 @@ include_directories(includes)
 include_directories(includes/libft/includes)
 
 add_executable(minishell
+        includes/libft/ft_printf/colour_extra.c
         includes/libft/ft_printf/ft_for_p.c
         includes/libft/ft_printf/ft_itoa_base.c
         includes/libft/ft_printf/ft_new.c
@@ -19,6 +20,10 @@ add_executable(minishell
         includes/libft/ft_printf/type_c.c
         includes/libft/ft_printf/type_i_d.c
         includes/libft/ft_printf/type_s.c
+        includes/libft/hash_table/hash_functions.c
+        includes/libft/hash_table/hash_init.c
+        includes/libft/includes/get_next_line.h
+        includes/libft/includes/hash.h
         includes/libft/includes/ldbl_header.h
         includes/libft/includes/libft.h
         includes/libft/includes/libftprintf.h
@@ -32,6 +37,7 @@ add_executable(minishell
         includes/libft/ft_isascii.c
         includes/libft/ft_isdigit.c
         includes/libft/ft_isprint.c
+        includes/libft/ft_isspace.c
         includes/libft/ft_itoa.c
         includes/libft/ft_lstadd.c
         includes/libft/ft_lstdel.c
@@ -47,6 +53,7 @@ add_executable(minishell
         includes/libft/ft_memdel.c
         includes/libft/ft_memmove.c
         includes/libft/ft_memset.c
+        includes/libft/ft_pow.c
         includes/libft/ft_putchar.c
         includes/libft/ft_putchar_fd.c
         includes/libft/ft_putendl.c
@@ -88,6 +95,8 @@ add_executable(minishell
         includes/libft/ft_wordcount.c
         includes/libft/get_next_line.c
         includes/mshheader.h
+        src/command.c
+        src/env_commands.c
         src/errors.c
         src/main.c
-        src/readline.c includes/libft/ft_isspace.c src/command.c src/env_commands.c)
+        src/readline.c)

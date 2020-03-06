@@ -6,7 +6,7 @@
 /*   By: pkingsbl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:31:53 by pkingsbl          #+#    #+#             */
-/*   Updated: 2020/02/12 20:36:13 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/06 16:20:00 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define CYN   "\x1B[36m"
 # define WHT   "\x1B[37m"
 # define RESET "\x1B[0m"
+
 typedef union	u_ptr
 {
 	void			*ptr;
@@ -74,5 +75,7 @@ const char		*search_size(const char *str, t_specif *spec);
 const char		*search_type(const char *str, t_specif *spec);
 void			str_wide(char **str, t_specif spec);
 void			str_flags(char **str, char *s1);
+void			set_colour(const char *str);
+int				print_not_percent(const char *str, int *i);
 
 #endif

@@ -162,6 +162,12 @@
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memset.c">
 			<Option target="minishell"/>
 		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_pow.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/colour_extra.c">
+			<Option target="minishell"/>
+		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ft_for_p.c">
 			<Option target="minishell"/>
 		</Unit>
@@ -316,6 +322,18 @@
 			<Option target="minishell"/>
 		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/get_next_line.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/hash_table/hash_functions.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/hash_table/hash_init.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/get_next_line.h">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/hash.h">
 			<Option target="minishell"/>
 		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/ldbl_header.h">
