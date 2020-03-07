@@ -269,18 +269,22 @@ CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o: ../includes/li
 CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o: ../includes/libft/hash_table/hash_init.c
 
+CMakeFiles/minishell.dir/src/command.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/command.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/command.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/command.c.o: ../src/command.c
 
+CMakeFiles/minishell.dir/src/env_commands.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/env_commands.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/env_commands.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/env_commands.c.o: ../src/env_commands.c
 
+CMakeFiles/minishell.dir/src/errors.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/errors.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/errors.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/errors.c.o: ../src/errors.c
 
+CMakeFiles/minishell.dir/src/main.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/main.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/main.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/main.c.o: ../src/main.c

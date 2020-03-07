@@ -73,7 +73,7 @@ char				*ft_strtrim(char const *s);
 size_t				ft_strclen(const char *s, char c);
 char				**ft_strsplit(char const *s, char c);
 size_t				ft_wordcount(char const *s, char c);
-void				ft_abortalloc(char **res, size_t k);
+void				ft_abortalloc(char **res);
 int					ft_countdigits(int n);
 char				*ft_itoa(int n);
 void				ft_putchar_fd(char c, int fd);

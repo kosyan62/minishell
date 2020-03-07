@@ -24,5 +24,4 @@ fclean: clean
 	@make -C $(LIB_PATH) fclean
 norm: $(NAME)
 	norminette */**.c */**.h
-
 re: fclean all

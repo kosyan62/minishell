@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:19:42 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 15:17:48 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 21:56:15 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <libft/includes/hash.h>
 
 
-char			**g_env;
+extern char	**g_env;
 
 char	*ft_get_env(char *name)
 {
@@ -32,10 +32,10 @@ char	*ft_get_env(char *name)
 		{
 			res = ft_strchr(*g_env, '=');
 			g_env = dst;
-			if (!(res = ft_strdup(res)))
+			if (!(res = ft_strdup(res + 1)))
 				malloc_error();
 			else
-				return (res + 1);
+				return (res);
 		}
 		g_env++;
 	}
@@ -133,7 +133,7 @@ char	*msh_readline()
 	char	*line;
 
 	line = NULL;
-	if (get_next_line(0, &line) == 0)
+	if ((get_next_line(0, &line) == 0) || !line)
 		return (ft_strnew(1));
 	if (ft_strcmp(line, "exit") == 0)
 	{
@@ -166,24 +166,21 @@ t_list	*parse_line(char *line)
 		}
 		one_command = get_command(&line);
 		ft_lstadd(&commands, ft_lstnew(one_command, sizeof(one_command)));
-		free(one_command);
 	}
 	return (commands);
 }
 
-void run_commands(t_list *command)
+void run_commands(t_list *command, t_hash_table *ht_cmd_path)
 {
-
 	if (!command)
 		return ;
 	while (command)
 	{
-		if (ft_strcmp(*(char **)(command->content), "cd") == 0 || ft_strcmp(*(char **)command->content, "setenv") == 0 ||
-
-			ft_strcmp(*(char **)command->content, "unsetenv") == 0 || ft_strcmp(*(char **)command->content, "env") == 0)
-			env_commands((char **)command->content);
-		else
-			execute_command((char**)command->content);
+//		if (ft_strcmp(*(char **)(command->content), "cd") == 0 || ft_strcmp(*(char **)command->content, "setenv") == 0 ||
+//			ft_strcmp(*(char **)command->content, "unsetenv") == 0 || ft_strcmp(*(char **)command->content, "env") == 0)
+//			env_commands((char **) command->content, ht_cmd_path);
+//		else
+			execute_command((char **) command->content, ht_cmd_path);
 		command = command->next;
 	}
 }

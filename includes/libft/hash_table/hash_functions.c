@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 15:33:01 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 15:58:09 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 20:15:13 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ char			*ht_search(t_hash_table *table, char *key)
 
 void			ht_print_whole(t_hash_table *table)
 {
-	int			i;
+	unsigned int			i;
 	t_ht_item	*cur;
 
 	i = 0;
-	while (i != 10)
+	while (i != table->size)
 	{
 		cur = table->items[i];
 		if (cur)

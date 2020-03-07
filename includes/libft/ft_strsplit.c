@@ -6,7 +6,7 @@
 /*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:30:13 by mgena             #+#    #+#             */
-/*   Updated: 2019/09/18 14:10:20 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 20:52:17 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@ char				**ft_strsplit(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	s = ft_jump(s, c);
-	res = ft_memalloc(sizeof(char*) * ft_wordcount(s, c) + 1);
-	if (res == NULL)
-		return (NULL);
+	if (!(res = ft_memalloc(sizeof(char*) * ft_wordcount(s, c) + 1)))
+		malloc_error();
 	k = 0;
 	while (*s != '\0')
 	{
@@ -52,8 +51,8 @@ char				**ft_strsplit(char const *s, char c)
 		res[k] = ft_strnew(ft_strclen(s, c));
 		if (res[k] == NULL)
 		{
-			ft_abortalloc(res, k);
-			return (NULL);
+			ft_abortalloc(res);
+			malloc_error();
 		}
 		s += ft_line(s, c, res[k++]);
 		s = ft_jump(s, c);

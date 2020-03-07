@@ -6,12 +6,14 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 18:11:37 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 13:18:13 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 23:34:38 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mshheader.h"
 #include <sys/wait.h>
+#include <errno.h>
+#include <stdio.h>
 
 extern char **g_env;
 
@@ -87,29 +89,39 @@ char **get_command(char **line)
 	return (pars_commands(tmp));
 }
 
-void	execute_command(char **command)
+void execute_command(char **command, t_hash_table *table)
 {
 	pid_t	pid;
 	int		status;
 	char	*filename;
+	size_t i = 0;
 
-	filename = "/bin/";
-	filename = ft_strjoin(filename, *command);
-//	pid = fork();
-//	if (pid == 0)
-//	{
-//		if (execve(filename, command, g_env) == -1)
-//			error("Execute error");
-//	}
-//	else if (pid < 0)
-//		error("Fork error");
-//	else
-//	{
-//			pid = wait(&status);
-//			if (pid == -1)
-//				error("Problem with Wait");
-//			if (status)
-//				error("Something with child process");
-//	}
-	free(filename);
+	ft_printf("\n============\n");
+	while (command[i] != NULL)
+	{
+		ft_printf("%s\n", command[i]);
+		i++;
+	}
+	ft_printf("\n============\n");
+	if ((filename = ht_search(table, *command)) == NULL)
+		filename = *command;
+	pid = fork();
+	if (pid == 0)
+	{
+		if (execv(filename, command) == -1)
+		{
+			perror("ls");
+			return ;
+		}
+	}
+	else if (pid < 0)
+		error("Fork error");
+	else
+	{
+			pid = wait(&status);
+			if (pid == -1)
+				error("Problem with Wait");
+			if (status)
+				error("Something with child process");
+	}
 }
