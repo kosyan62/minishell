@@ -6,11 +6,13 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 14:04:46 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/14 14:24:23 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/06 23:00:19 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mshheader.h"
+
+extern char **g_env;
 
 //void ft_env(char **command);
 //

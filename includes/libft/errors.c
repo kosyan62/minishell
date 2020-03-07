@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 19:36:33 by mgena             #+#    #+#             */
-/*   Updated: 2019/09/18 12:39:02 by mgena            ###   ########.fr       */
+/*   Created: 2020/03/06 18:02:28 by mgena             #+#    #+#             */
+/*   Updated: 2020/03/06 18:02:28 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <errno.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+void malloc_error()
 {
-	if (!*alst || !del)
-		return ;
-	if ((*alst)->next)
-		ft_lstdel(&((*alst)->next), del);
-	ft_lstdelone(alst, del);
+	ft_printf("error: memory have not been allocated");
+	exit(ENOMEM);
 }

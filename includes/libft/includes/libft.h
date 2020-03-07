@@ -6,7 +6,7 @@
 /*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 15:39:26 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/06 16:17:23 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/06 16:20:55 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ char				*ft_realloc_double(char *str);
 _Bool				ft_isspace(int ch);
 int					get_next_line(const int fd, char **line);
 long				ft_pow(int a, int b);
+void				malloc_error();
 
 #endif

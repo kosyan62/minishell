@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:59:17 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/06 15:36:00 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:53:50 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ t_ht_item		*new_ht_item(char *key, char *value)
 {
 	t_ht_item *new;
 
-	new = malloc(sizeof(t_ht_item));
-	new->key = ft_strdup(key);
-	new->value = ft_strdup(value);
+	if (!(new = ft_memalloc(sizeof(t_ht_item))))
+		return (NULL);
+	if (!(new->key = ft_strdup(key)))
+		return (NULL);
+	if (!(new->value = ft_strdup(value)))
+		return (NULL);
 	new->next = NULL;
 	return (new);
 }
@@ -30,8 +33,10 @@ t_hash_table	*new_hash_table(unsigned int size)
 	size_t			i;
 
 	i = 0;
-	table = malloc(sizeof(t_hash_table));
-	items = malloc(sizeof(t_ht_item*) * size);
+	if (!(table = ft_memalloc(sizeof(t_hash_table))))
+		return (NULL);
+	if (!(items = ft_memalloc(sizeof(t_ht_item*) * size)))
+		return (NULL);
 	while (i != size)
 		items[i++] = NULL;
 	table->items = items;

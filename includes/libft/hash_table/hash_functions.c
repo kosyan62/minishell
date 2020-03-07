@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 15:33:01 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/06 15:36:00 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 15:58:09 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void			ht_insert(t_hash_table *table, char *key, char *value)
 	t_ht_item		*cur;
 	unsigned int	index;
 
-	item = new_ht_item(key, value);
+	if (!(item = new_ht_item(key, value)))
+		malloc_error();
 	index = hash_funct(key, WEIGHT, table->size);
 	cur = table->items[index];
 	table->items[index] = item;
@@ -80,4 +81,24 @@ void			ht_print_whole(t_hash_table *table)
 			ft_printf("items[%i] = NULL\n", i);
 		i++;
 	}
+}
+
+void hash_table_resize(t_hash_table **table)
+{
+	t_hash_table *new;
+	size_t i;
+
+	i = 0;
+	new = new_hash_table((*table)->size * 2);
+	while (i != (*table)->size)
+	{
+		while ((*table)->items[i])
+		{
+			ht_insert(new, (*table)->items[i]->key, (*table)->items[i]->value);
+			(*table)->items[i] = (*table)->items[i]->next;
+		}
+		i++;
+	}
+	del_hash_table(*table);
+	*table = new;
 }

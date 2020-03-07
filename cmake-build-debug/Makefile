@@ -123,6 +123,33 @@ minishell/fast:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/build
 .PHONY : minishell/fast
 
+includes/libft/errors.o: includes/libft/errors.c.o
+
+.PHONY : includes/libft/errors.o
+
+# target to build an object file
+includes/libft/errors.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/errors.c.o
+.PHONY : includes/libft/errors.c.o
+
+includes/libft/errors.i: includes/libft/errors.c.i
+
+.PHONY : includes/libft/errors.i
+
+# target to preprocess a source file
+includes/libft/errors.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/errors.c.i
+.PHONY : includes/libft/errors.c.i
+
+includes/libft/errors.s: includes/libft/errors.c.s
+
+.PHONY : includes/libft/errors.s
+
+# target to generate assembly for a file
+includes/libft/errors.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/includes/libft/errors.c.s
+.PHONY : includes/libft/errors.c.s
+
 includes/libft/ft_abortalloc.o: includes/libft/ft_abortalloc.c.o
 
 .PHONY : includes/libft/ft_abortalloc.o
@@ -2481,6 +2508,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... minishell"
+	@echo "... includes/libft/errors.o"
+	@echo "... includes/libft/errors.i"
+	@echo "... includes/libft/errors.s"
 	@echo "... includes/libft/ft_abortalloc.o"
 	@echo "... includes/libft/ft_abortalloc.i"
 	@echo "... includes/libft/ft_abortalloc.s"

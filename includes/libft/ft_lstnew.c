@@ -6,7 +6,7 @@
 /*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 18:25:27 by mgena             #+#    #+#             */
-/*   Updated: 2019/09/18 12:40:01 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 13:29:11 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 
 	newlist = ft_memalloc(sizeof(t_list));
 	if (newlist == NULL)
-		return (NULL);
+		malloc_error();
 	if (content == NULL || content_size == 0)
 	{
 		newlist->content = NULL;
@@ -29,7 +29,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	contentcpy = ft_memalloc(content_size);
 	if (contentcpy == NULL)
-		return (NULL);
+		malloc_error();
 	newlist->content = ft_memcpy(contentcpy, content, content_size);
 	newlist->content_size = content_size;
 	newlist->next = NULL;

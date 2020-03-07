@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/mgena/CLionProjects/minishell/includes/libft/errors.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/includes/libft/errors.c.o"
   "/Users/mgena/CLionProjects/minishell/includes/libft/ft_abortalloc.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/includes/libft/ft_abortalloc.c.o"
   "/Users/mgena/CLionProjects/minishell/includes/libft/ft_atoi.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/includes/libft/ft_atoi.c.o"
   "/Users/mgena/CLionProjects/minishell/includes/libft/ft_atol.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/includes/libft/ft_atol.c.o"

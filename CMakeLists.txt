@@ -99,4 +99,4 @@ add_executable(minishell
         src/env_commands.c
         src/errors.c
         src/main.c
-        src/readline.c)
+        src/readline.c includes/libft/errors.c)

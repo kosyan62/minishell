@@ -6,35 +6,41 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:19:42 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/04 17:42:26 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 15:17:48 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mshheader.h"
 #include <limits.h>
 #include <unistd.h>
+#include <libft/includes/hash.h>
 
 
-char *ft_get_env(char *name)
+char			**g_env;
+
+char	*ft_get_env(char *name)
 {
-	char *res;
-	size_t len;
-	char **dst;
+	char	*res;
+	char	**dst;
+	size_t	len;
 
 	len = ft_strlen(name);
-	dst = environ;
-	while (*environ != NULL && *name)
+	dst = g_env;
+	while (*g_env != NULL && *name)
 	{
-		if (ft_strnstr(*environ, name, len))
+		if (ft_strnstr(*g_env, name, len))
 		{
-			res = ft_strchr(*environ, '=');
-			environ = dst;
-			return ft_strdup(res + 1);
+			res = ft_strchr(*g_env, '=');
+			g_env = dst;
+			if (!(res = ft_strdup(res)))
+				malloc_error();
+			else
+				return (res + 1);
 		}
-		environ++;
+		g_env++;
 	}
-	environ = dst;
-	return NULL;
+	g_env = dst;
+	return (NULL);
 }
 
 void	get_tilda(char **line, size_t i)
@@ -45,20 +51,24 @@ void	get_tilda(char **line, size_t i)
 
 	tmp = *line;
 	tmp[i] = '\0';
-	str[0] = ft_strdup(tmp);
+	if (!(str[0] = ft_strdup(tmp)))
+		malloc_error();
 	str[1] = ft_get_env("HOME");
-	str[2] = ft_strdup(&tmp[i + 1]);
+	if (!(str[2] = ft_strdup(&tmp[i + 1])))
+		malloc_error();
 	free(*line);
-	tmp = ft_strjoin(str[0], str[1]);
+	if (!(tmp = ft_strjoin(str[0], str[1])))
+		malloc_error();
 	free(str[0]);
 	free(str[1]);
-	tmp2 = ft_strjoin(tmp, str[2]);
+	if (!(tmp2 = ft_strjoin(tmp, str[2])))
+		malloc_error();
 	free(tmp);
 	free(str[2]);
 	*line = tmp2;
 }
 
-size_t get_dollr_var(char *src, char **dst)
+size_t	get_dollr_var(char *src, char **dst)
 {
 	size_t i;
 	char *tmp;
@@ -124,22 +134,23 @@ char	*msh_readline()
 
 	line = NULL;
 	if (get_next_line(0, &line) == 0)
-		return NULL;
+		return (ft_strnew(1));
 	if (ft_strcmp(line, "exit") == 0)
 	{
 		get_next_line(-1, &line);
-//		free(line);
-		exit(EXIT_SUCCESS);
+		return (NULL);
 	}
 	line = get_expansion(line);
 return (line);
 }
 
-void	parse_line(char *line)
+t_list	*parse_line(char *line)
 {
 	char *original;
-	char **command;
+	char **one_command;
+	t_list *commands;
 
+	commands = NULL;
 	original = line;
 	if (*line == ';')
 		line++;
@@ -149,16 +160,30 @@ void	parse_line(char *line)
 			break ;
 		if (*line == ';')
 		{
+			free(line);
 			free(original);
 			error("parse error near `;;'");
 		}
-		command = get_command(&line);
-		if (ft_strcmp(*command, "cd") == 0 || ft_strcmp(*command, "setenv") == 0 ||
-		ft_strcmp(*command, "unsetenv") == 0 || ft_strcmp(*command, "env") == 0)
-			env_commands(command);
-		else
-			execute_command(command);
-		free(command);
+		one_command = get_command(&line);
+		ft_lstadd(&commands, ft_lstnew(one_command, sizeof(one_command)));
+		free(one_command);
 	}
-	free(original);
+	return (commands);
+}
+
+void run_commands(t_list *command)
+{
+
+	if (!command)
+		return ;
+	while (command)
+	{
+		if (ft_strcmp(*(char **)(command->content), "cd") == 0 || ft_strcmp(*(char **)command->content, "setenv") == 0 ||
+
+			ft_strcmp(*(char **)command->content, "unsetenv") == 0 || ft_strcmp(*(char **)command->content, "env") == 0)
+			env_commands((char **)command->content);
+		else
+			execute_command((char**)command->content);
+		command = command->next;
+	}
 }

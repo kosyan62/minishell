@@ -6,7 +6,7 @@
 /*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 17:46:54 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/04 16:22:01 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 14:53:36 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int		write_line(char **to, char *from)
 	size_t bytes_to_write;
 
 	bytes_to_write = ft_strclen(from, '\n');
-	*to = ft_strnew(bytes_to_write + 2);
-	if (*to == NULL)
+	if(!(*to = ft_strnew(bytes_to_write + 2)))
 		return (-1);
 	ft_strncpy(*to, from, bytes_to_write);
 	ft_memmove(from, (&(from[bytes_to_write + 1])),
@@ -41,8 +40,7 @@ int		ft_myjoin(char **buff_fd, const int fd)
 	ft_bzero(buffer, BUFF_SIZE + 1);
 	while ((ret = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		tmp = ft_strjoin(buff_fd[fd], buffer);
-		if (tmp == NULL)
+		if (!(tmp = ft_strjoin(buff_fd[fd], buffer)))
 			return (-1);
 		ft_strdel(&buff_fd[fd]);
 		buff_fd[fd] = tmp;

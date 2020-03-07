@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:22:22 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/03 17:02:56 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/06 22:01:33 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ typedef	struct		s_string
 	size_t			maxlen;
 }					t_string;
 
-extern char **environ;
-
 char 	*msh_readline();
-void	parse_line(char *line);
+t_list 	*parse_line(char *line);
 void	error(char *line);
 char ** get_command(char **line);
 void	execute_command(char **command);
 void	env_commands(char **command);
+void	run_commands(t_list *command);
 
 #endif //MINISHELL_MSHHEADER_H

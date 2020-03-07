@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/errors.c">
+			<Option target="minishell"/>
+		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_abortalloc.c">
 			<Option target="minishell"/>
 		</Unit>

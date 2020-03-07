@@ -6,7 +6,7 @@
 /*   By: mgena <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:23:02 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/25 18:57:12 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 00:10:26 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ char	*ft_strnew(size_t size)
 {
 	char *res;
 
-	res = ft_memalloc(size + 1);
-	if (res == NULL)
-		return (NULL);
+	if(!(res = ft_memalloc(size + 1)))
+		malloc_error();
 	return (res);
 }

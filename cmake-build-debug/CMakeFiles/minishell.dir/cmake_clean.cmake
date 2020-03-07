@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/minishell.dir/includes/libft/errors.c.o"
   "CMakeFiles/minishell.dir/includes/libft/ft_abortalloc.c.o"
   "CMakeFiles/minishell.dir/includes/libft/ft_atoi.c.o"
   "CMakeFiles/minishell.dir/includes/libft/ft_atol.c.o"

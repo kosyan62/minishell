@@ -6,12 +6,14 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 18:11:37 by mgena             #+#    #+#             */
-/*   Updated: 2020/02/25 20:14:32 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/07 13:18:13 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mshheader.h"
 #include <sys/wait.h>
+
+extern char **g_env;
 
 char	*jump_whitespace(char *line)
 {
@@ -48,10 +50,10 @@ char	**pars_commands(char *line)
 	int		k;
 	char	**argv;
 
-
 	k = 0;
 	quantity = get_quantity(line);
-	argv = malloc((sizeof(char*)) * (quantity + 1));
+	if (!(argv = (char**)ft_memalloc((sizeof(char*)) * (quantity + 1))))
+		malloc_error();
 	while (*line != '\0')
 	{
 		argv[k++] = line;
@@ -91,23 +93,23 @@ void	execute_command(char **command)
 	int		status;
 	char	*filename;
 
-
+	filename = "/bin/";
 	filename = ft_strjoin(filename, *command);
-	pid = fork();
-	if (pid == 0)
-	{
-		if (execv(filename, command) == -1)
-			error("Execute error");
-	}
-	else if (pid < 0)
-		error("Fork error");
-	else
-	{
-			pid = wait(&status);
-			if (pid == -1)
-				error("Problem with Wait");
-			if (status)
-				error("Something with child process");
-	}
+//	pid = fork();
+//	if (pid == 0)
+//	{
+//		if (execve(filename, command, g_env) == -1)
+//			error("Execute error");
+//	}
+//	else if (pid < 0)
+//		error("Fork error");
+//	else
+//	{
+//			pid = wait(&status);
+//			if (pid == -1)
+//				error("Problem with Wait");
+//			if (status)
+//				error("Something with child process");
+//	}
 	free(filename);
 }

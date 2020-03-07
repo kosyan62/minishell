@@ -18,11 +18,7 @@ libft.h
 unistd.h
 -
 
-/Users/mgena/CLionProjects/minishell/src/readline.c
+/Users/mgena/CLionProjects/minishell/src/main.c
 mshheader.h
 /Users/mgena/CLionProjects/minishell/src/mshheader.h
-limits.h
--
-unistd.h
--
 
