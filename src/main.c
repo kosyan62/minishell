@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:21:41 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 23:19:43 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/09 21:43:16 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char **g_env;
 void del_one_command(void *foo, size_t bar)
 {
 	bar = 0;
+	free(*(char***)foo);
 	free(foo);
 }
 
@@ -27,7 +28,7 @@ char **get_cmd_path()
 	char	*cmd_str;
 	char	**cmd_arr;
 
-	cmd_str = ft_get_env("PATH");
+	cmd_str = ft_get_env_value("PATH");
 	cmd_arr = ft_strsplit(cmd_str, ':');
 	free(cmd_str);
 	return(cmd_arr);

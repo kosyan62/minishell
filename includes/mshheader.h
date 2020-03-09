@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:22:22 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 21:23:50 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/09 22:04:30 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char ** get_command(char **line);
 void execute_command(char **command, t_hash_table *table);
 void env_commands(char **command, t_hash_table *ht_cmd_path);
 void	run_commands(t_list *command, t_hash_table *ptr);
-char	*ft_get_env(char *name);
+char	*ft_get_env_value(char *name);
+char	**ft_get_env(char *name);
 
 #endif //MINISHELL_MSHHEADER_H

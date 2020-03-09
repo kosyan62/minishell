@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:19:42 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 21:56:15 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/09 23:40:25 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,41 @@
 
 extern char	**g_env;
 
-char	*ft_get_env(char *name)
+/*Get pointer in environ, which equal name*/
+char	**ft_get_env(char *name)
+{
+	size_t len;
+	size_t i;
+
+	i = 0;
+	len = ft_strlen(name);
+	while (g_env[i] && name)
+	{
+		if (ft_strnstr(g_env[i], name, len))
+		{
+			if (g_env[i][len] == '=')
+				return (&g_env[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+char	*ft_get_env_value(char *name)
 {
 	char	*res;
-	char	**dst;
-	size_t	len;
+	char 	**place;
 
-	len = ft_strlen(name);
-	dst = g_env;
-	while (*g_env != NULL && *name)
+	if (!(place = ft_get_env(name)))
+		return (NULL);
+	else
 	{
-		if (ft_strnstr(*g_env, name, len))
-		{
-			res = ft_strchr(*g_env, '=');
-			g_env = dst;
-			if (!(res = ft_strdup(res + 1)))
-				malloc_error();
-			else
-				return (res);
-		}
-		g_env++;
+		res = *place;
+		res = ft_strchr(res, '=');
+		if (!(res = ft_strdup(res + 1)))
+			malloc_error();
+		return (res);
 	}
-	g_env = dst;
-	return (NULL);
 }
 
 void	get_tilda(char **line, size_t i)
@@ -53,7 +65,7 @@ void	get_tilda(char **line, size_t i)
 	tmp[i] = '\0';
 	if (!(str[0] = ft_strdup(tmp)))
 		malloc_error();
-	str[1] = ft_get_env("HOME");
+	str[1] = ft_get_env_value("HOME");
 	if (!(str[2] = ft_strdup(&tmp[i + 1])))
 		malloc_error();
 	free(*line);
@@ -83,7 +95,7 @@ size_t	get_dollr_var(char *src, char **dst)
 		i++;
 	tmp = ft_strnew(i);
 	ft_strncpy(tmp, src, i);
-	*dst = ft_get_env(tmp);
+	*dst = ft_get_env_value(tmp);
 	free(tmp);
 	if (*dst == NULL)
 		*dst = ft_strnew(1);
@@ -149,6 +161,7 @@ t_list	*parse_line(char *line)
 	char *original;
 	char **one_command;
 	t_list *commands;
+//	size_t i = 0;
 
 	commands = NULL;
 	original = line;
@@ -165,7 +178,11 @@ t_list	*parse_line(char *line)
 			error("parse error near `;;'");
 		}
 		one_command = get_command(&line);
-		ft_lstadd(&commands, ft_lstnew(one_command, sizeof(one_command)));
+//		while (one_command[i])
+//		{
+//			ft_printf("%s", one_command)
+//		}
+		ft_lstadd(&commands, ft_lstnew(&one_command, sizeof(&one_command)));
 	}
 	return (commands);
 }
@@ -176,11 +193,11 @@ void run_commands(t_list *command, t_hash_table *ht_cmd_path)
 		return ;
 	while (command)
 	{
-//		if (ft_strcmp(*(char **)(command->content), "cd") == 0 || ft_strcmp(*(char **)command->content, "setenv") == 0 ||
-//			ft_strcmp(*(char **)command->content, "unsetenv") == 0 || ft_strcmp(*(char **)command->content, "env") == 0)
-//			env_commands((char **) command->content, ht_cmd_path);
-//		else
-			execute_command((char **) command->content, ht_cmd_path);
+		if (ft_strcmp(**(char ***)(command->content), "cd") == 0 || ft_strcmp(**(char ***)command->content, "setenv") == 0 ||
+			ft_strcmp(**(char ***)command->content, "unsetenv") == 0 || ft_strcmp(**(char ***)command->content, "env") == 0)
+			env_commands(*(char ***) command->content, ht_cmd_path);
+		else
+			execute_command(*(char ***) command->content, ht_cmd_path);
 		command = command->next;
 	}
 }

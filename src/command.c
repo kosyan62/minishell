@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 18:11:37 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/07 23:34:38 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/09 16:16:08 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,23 +94,15 @@ void execute_command(char **command, t_hash_table *table)
 	pid_t	pid;
 	int		status;
 	char	*filename;
-	size_t i = 0;
 
-	ft_printf("\n============\n");
-	while (command[i] != NULL)
-	{
-		ft_printf("%s\n", command[i]);
-		i++;
-	}
-	ft_printf("\n============\n");
-	if ((filename = ht_search(table, *command)) == NULL)
+	if (!(filename = ht_search(table, *command)))
 		filename = *command;
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execv(filename, command) == -1)
+		if (execve(filename, command, g_env) == -1)
 		{
-			perror("ls");
+			ft_printf("no such command: %s\n", *command);
 			return ;
 		}
 	}

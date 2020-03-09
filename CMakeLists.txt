@@ -27,6 +27,7 @@ add_executable(minishell
         includes/libft/includes/ldbl_header.h
         includes/libft/includes/libft.h
         includes/libft/includes/libftprintf.h
+        includes/libft/errors.c
         includes/libft/ft_abortalloc.c
         includes/libft/ft_atoi.c
         includes/libft/ft_atol.c
@@ -99,4 +100,4 @@ add_executable(minishell
         src/env_commands.c
         src/errors.c
         src/main.c
-        src/readline.c includes/libft/errors.c)
+        src/readline.c)
