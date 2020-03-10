@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 14:04:46 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/10 19:17:02 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/10 20:56:18 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,17 +240,22 @@ void ft_unsetenv(char **command)
 		ft_unset_env(*command++);
 	if (*command)
 		ft_printf("usage: unsetenv [name ...]\n");
+	//TODO make reloading hash table when "PATH" changes
 }
 
-void	msh_cd(char **command)
+void ch_dir_to(char *dir)
 {
 	char **newpath;
-	if(chdir(command[1]))
+
+	if (chdir(dir))
 	{
-		ft_printf("cd: no such file or directory: %s\n", command[1]);
-		return ;
+		if (!access(dir, 3))
+			ft_printf("cd: permission denied: %s\n", dir);
+		else
+			ft_printf("cd: no such file or directory: %s\n", dir);
+		return;
 	}
-	newpath = ft_memalloc(sizeof(char*) * 2);
+	newpath = ft_memalloc(sizeof(char *) * 2);
 	newpath[1] = getcwd(NULL, 1024);
 	*newpath = ft_strjoin("PWD=", newpath[1]);
 	free(newpath[1]);
@@ -259,14 +264,42 @@ void	msh_cd(char **command)
 	ft_abortalloc(newpath);
 }
 
-void env_commands(char **command, t_hash_table *table)
+void	msh_cd(char **command)
 {
-	if (ft_strcmp(*command, "env") == 0)
-		ft_env(command, table);
-	else if (ft_strcmp(*command, "unsetenv") == 0)
-		ft_unsetenv(command);
-	else if (ft_strcmp(*command, "setenv") == 0)
-		ft_setenv_cmd(command);
-	else if (ft_strcmp(*command, "cd") == 0)
-		msh_cd(command);
+	if (command[1])
+	{
+		ch_dir_to(command[1]);
+	}
+	else
+	{
+		if (*g_env)
+			ch_dir_to(ft_get_env_value("HOME"));
+		else
+			ft_printf("Set HOME environment variable\n");
+	}
 }
+
+void msh_echo(char **command)
+{
+	command++;
+		while (*command)
+		{
+			ft_printf("%s ", *command);
+			command++;
+		}
+	ft_printf("\n");
+}
+
+void env_commands(char **command, t_hash_table *table)
+	{
+		if (ft_strcmp(*command, "env") == 0)
+			ft_env(command, table);
+		else if (ft_strcmp(*command, "unsetenv") == 0)
+			ft_unsetenv(command);
+		else if (ft_strcmp(*command, "setenv") == 0)
+			ft_setenv_cmd(command);
+		else if (ft_strcmp(*command, "cd") == 0)
+			msh_cd(command);
+		else if (ft_strcmp(*command, "echo") == 0)
+			msh_echo(command);
+	}

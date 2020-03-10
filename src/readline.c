@@ -162,7 +162,6 @@ t_list	*parse_line(char *line)
 	char *original;
 	char **one_command;
 	t_list *commands;
-//	size_t i = 0;
 
 	commands = NULL;
 	original = line;
@@ -179,10 +178,6 @@ t_list	*parse_line(char *line)
 			error("parse error near `;;'");
 		}
 		one_command = get_command(&line);
-//		while (one_command[i])
-//		{
-//			ft_printf("%s", one_command)
-//		}
 		ft_lstadd(&commands, ft_lstnew(&one_command, sizeof(&one_command)));
 	}
 	return (commands);
@@ -195,7 +190,8 @@ void run_commands(t_list *command, t_hash_table *ht_cmd_path)
 	while (command)
 	{
 		if (ft_strcmp(**(char ***)(command->content), "cd") == 0 || ft_strcmp(**(char ***)command->content, "setenv") == 0 ||
-			ft_strcmp(**(char ***)command->content, "unsetenv") == 0 || ft_strcmp(**(char ***)command->content, "env") == 0)
+			ft_strcmp(**(char ***)command->content, "unsetenv") == 0 || ft_strcmp(**(char ***)command->content, "env") == 0 ||
+            ft_strcmp(**(char ***)command->content, "echo") == 0)
 			env_commands(*(char ***) command->content, ht_cmd_path);
 		else
 			execute_command(*(char ***) command->content, ht_cmd_path);

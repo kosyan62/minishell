@@ -46,6 +46,14 @@ int		get_quantity(char *line)
 	}
 	return (quantity);
 }
+
+char *jump_quotes(char *line)
+{
+	while(*line && *line != 34)
+		line++;
+	return(++line);
+}
+
 char	**pars_commands(char *line)
 {
 	int		quantity;
@@ -59,6 +67,8 @@ char	**pars_commands(char *line)
 	while (*line != '\0')
 	{
 		argv[k++] = line;
+		if (*line == 34)
+			line = jump_quotes(line);
 		while(!ft_isspace(*line) && *line)
 			line++;
 		if (*line)
