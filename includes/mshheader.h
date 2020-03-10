@@ -34,5 +34,6 @@ void env_commands(char **command, t_hash_table *ht_cmd_path);
 void	run_commands(t_list *command, t_hash_table *ptr);
 char	*ft_get_env_value(char *name);
 char	**ft_get_env(char *name);
+char	**ft_copy_env();
 
 #endif //MINISHELL_MSHHEADER_H

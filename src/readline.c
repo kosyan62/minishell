@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:19:42 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/09 23:40:25 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/10 19:06:40 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,8 @@ char	*msh_readline()
 		get_next_line(-1, &line);
 		return (NULL);
 	}
-	line = get_expansion(line);
+	if (*g_env)
+		line = get_expansion(line);
 return (line);
 }
 

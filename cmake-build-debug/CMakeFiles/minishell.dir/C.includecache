@@ -25,6 +25,8 @@ libft/includes/hash.h
 -
 
 /Users/mgena/CLionProjects/minishell/src/env_commands.c
+dirent.h
+-
 mshheader.h
 /Users/mgena/CLionProjects/minishell/src/mshheader.h
 

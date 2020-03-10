@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:21:41 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/09 21:43:16 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/10 19:00:49 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ char **get_cmd_path()
 	char	*cmd_str;
 	char	**cmd_arr;
 
-	cmd_str = ft_get_env_value("PATH");
+	if (*g_env)
+		cmd_str = ft_get_env_value("PATH");
+	else
+		cmd_str = ft_strdup("/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin");
 	cmd_arr = ft_strsplit(cmd_str, ':');
 	free(cmd_str);
 	return(cmd_arr);
@@ -101,6 +104,7 @@ int 	main()
 	extern char **environ;
 
 	g_env = environ;
+	g_env = ft_copy_env();
 	minishell();
 
 	return 0;

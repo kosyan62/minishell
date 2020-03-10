@@ -6,10 +6,11 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 14:04:46 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/09 23:45:47 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/10 19:17:02 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <dirent.h>
 #include "mshheader.h"
 
 extern char **g_env;
@@ -112,7 +113,7 @@ void ft_unset_cpy_env(char **command, t_hash_table *table)
 	if (!(*command))
 	{
 		ft_printf("env: option requires an argument -- u\n");
-		ft_printf("usage: env [-iv] [-u name]\n"
+		ft_printf("usage: env [-i] [-u name]\n"
 				  "           [name=value ...]\n");
 		return ;
 	}
@@ -132,56 +133,140 @@ void ft_unset_cpy_env(char **command, t_hash_table *table)
 	}
 }
 
+void ft_env_warg(char **command, t_hash_table *table)
+{
+	if (command[1][1] == 'i')
+	{
+		ft_ignore_env(&command[2], table);
+		return ;
+	}
+	if (command[1][1] == 'u')
+	{
+		ft_unset_cpy_env(&command[2], table);
+		return ;
+	}
+	ft_printf("usage: env [-i] [-u name]\n"
+			  "           [name=value ...]\n");
+}
+
+void ft_add_env(char *command)
+{
+	size_t i;
+	char **new_env;
+
+	i = 0;
+	while (g_env[i])
+		i++;
+	if (!(new_env = ft_memalloc(sizeof(char*) * (i + 2))))
+		malloc_error();
+	i = 0;
+	while (g_env[i])
+	{
+		new_env[i] = g_env[i];
+		i++;
+	}
+	new_env[i] = ft_strdup(command);
+	new_env[i + 1] = NULL;
+	free(g_env);
+	g_env = new_env;
+}
+
+void ft_change_env(char **cur_env, char *command)
+{
+	free(*cur_env);
+	*cur_env = ft_strdup(command);
+}
+
+char	**ft_setenv(char **command)
+{
+	char **var;
+	char **cur;
+
+	while (*command && ft_strchr(*command, '='))
+	{
+		var = ft_strsplit(*command, '=');
+		if (var[1] == NULL)
+		{
+			ft_abortalloc(var);
+			return command;
+		}
+		if (!(cur = ft_get_env(*var)))
+			ft_add_env(*command);
+		else
+			ft_change_env(cur, *command);
+		ft_abortalloc(var);
+		command++;
+	}
+	return (command);
+}
+
+void ft_env_set_temp(char **command, t_hash_table *table)
+{
+	char **cpy_env;
+
+	cpy_env = g_env;
+	g_env = ft_copy_env();
+	command = ft_setenv(command);
+	if (*command)
+	execute_command(command, table);
+	else
+		ft_print_env();
+	ft_abortalloc(g_env);
+	g_env = cpy_env;
+}
+
 void ft_env(char **command, t_hash_table *table)
 {
 
 	if (!command[1])
-	{
 		ft_print_env();
-		return ;
-	}
-	if (command[1][0] == '-')
-	{
-		if (command[1][1] == 'i')
-		{
-			ft_ignore_env(&command[2], table);
-			return ;
-		}
-		if (command[1][1] == 'u')
-		{
-			ft_unset_cpy_env(&command[2], table);
-			return ;
-		}
-		ft_printf("usage: env [-iv] [-u name]\n"
-				  "           [name=value ...]\n");
-		return ;
-	}
+	else if (command[1][0] == '-')
+		ft_env_warg(command, table);
+	else
+		ft_env_set_temp(&command[1], table);
 
 }
 
-//void ft_setenv(char **command)
-//{
-//	if (*command[1])
-//	{
-//		ft_printf("setenv usage :<variable> <equal>\n");
-//		return ;
-//	}
-//	ft_search_env(*command);
-//}
-//void ft_unsetenv(char **command);
-//void ft_cd(char **command);
-//
-//
-void env_commands(char **command, t_hash_table *ht_cmd_path)
+void ft_setenv_cmd(char **command)
 {
-//	void (*my_choise)(char**);
+	command = ft_setenv(&command[1]);
+	if (*command)
+		ft_printf("usage: setenv [name=value ...]\n");
+}
+
+void ft_unsetenv(char **command)
+{
+	while (*command)
+		ft_unset_env(*command++);
+	if (*command)
+		ft_printf("usage: unsetenv [name ...]\n");
+}
+
+void	msh_cd(char **command)
+{
+	char **newpath;
+	if(chdir(command[1]))
+	{
+		ft_printf("cd: no such file or directory: %s\n", command[1]);
+		return ;
+	}
+	newpath = ft_memalloc(sizeof(char*) * 2);
+	newpath[1] = getcwd(NULL, 1024);
+	*newpath = ft_strjoin("PWD=", newpath[1]);
+	free(newpath[1]);
+	newpath[1] = NULL;
+	ft_setenv(newpath);
+	ft_abortalloc(newpath);
+}
+
+void env_commands(char **command, t_hash_table *table)
+{
 	if (ft_strcmp(*command, "env") == 0)
-		ft_env(command, ht_cmd_path);
-//	else if (ft_strcmp(*command, "unsetenv") == 0)
-//		my_choise = ft_unsetenv;
-//	else if (ft_strcmp(*command, "setenv") == 0)
-//		my_choise = ft_setenv;
-//	else if (ft_strcmp(*command, "cd") == 0)
-//		my_choise = ft_cd;
-//	my_choise(command);
+		ft_env(command, table);
+	else if (ft_strcmp(*command, "unsetenv") == 0)
+		ft_unsetenv(command);
+	else if (ft_strcmp(*command, "setenv") == 0)
+		ft_setenv_cmd(command);
+	else if (ft_strcmp(*command, "cd") == 0)
+		msh_cd(command);
 }
