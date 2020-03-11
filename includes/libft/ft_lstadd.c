@@ -19,3 +19,20 @@ void	ft_lstadd(t_list **alst, t_list *new)
 	new->next = *alst;
 	*alst = new;
 }
+
+void	ft_lstaddend(t_list **alst, t_list *new)
+{
+	t_list *ptr;
+
+	ptr = *alst;
+	if (!new)
+		return ;
+	if (!*alst)
+	{
+		*alst = new;
+		return ;
+	}
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr->next = new;
+}

@@ -17,89 +17,92 @@
 
 extern char **g_env;
 
-char	*jump_whitespace(char *line)
+char		*jump_whitespace(char *line)
 {
 	while (ft_isspace(*line) && *line)
 		line++;
 	return (line);
 }
 
-int		get_quantity(char *line)
+char		*jump_quotes(char *line)
 {
-	size_t	i;
-	int		flag;
-	int 	quantity;
+	line++;
+	while (*line && *line != '"')
+		line++;
+	return (++line);
+}
 
-	i = 0;
+size_t		get_quantity(char **line)
+{
+	int		flag;
+	size_t	quantity;
+
 	flag = 0;
 	quantity = 0;
-	while (line[i] != '\0')
+	while (**line != '\0' && **line != ';')
 	{
-		if (!ft_isspace(line[i]) && flag == 0)
+		if (!ft_isspace(**line) && flag == 0)
 		{
+			if (**line == '"')
+				*line = jump_quotes(*line);
 			flag = 1;
 			quantity++;
 		}
-		else if (ft_isspace(line[i]))
+		else
+		{
+			*line = jump_whitespace(*line);
 			flag = 0;
-		i++;
+		}
+		(*line)++;
 	}
+	if (**line)
+		*((*line)++) = '\0';
 	return (quantity);
 }
 
-char *jump_quotes(char *line)
+char		**pars_commands(char *line, char **argv)
 {
-	while(*line && *line != 34)
-		line++;
-	return(++line);
-}
-
-char	**pars_commands(char *line)
-{
-	int		quantity;
 	int		k;
-	char	**argv;
+	char	*cmd;
 
 	k = 0;
-	quantity = get_quantity(line);
-	if (!(argv = (char**)ft_memalloc((sizeof(char*)) * (quantity + 1))))
-		malloc_error();
+	cmd = line;
 	while (*line != '\0')
 	{
-		argv[k++] = line;
-		if (*line == 34)
+		if (*line == '"')
 			line = jump_quotes(line);
-		while(!ft_isspace(*line) && *line)
+		while (*line && !ft_isspace(*line))
 			line++;
 		if (*line)
 		{
 			*line = '\0';
 			line++;
 		}
+		argv[k++] = ft_strdup(cmd);
+		argv[k - 1] = get_expansion(argv[k - 1]);
 		line = jump_whitespace(line);
+		cmd = line;
 	}
 	argv[k] = NULL;
-	return(argv);
+	return (argv);
 }
 
-char **get_command(char **line)
+char		**get_command(char **line)
 {
-	char *tmp;
+	char	*tmp;
+	char	**argv;
+	size_t	quantity;
 
 	*line = jump_whitespace(*line);
 	tmp = *line;
-	*line = ft_strchr(*line, (int) ';');
-	if (*line != NULL)
-	{
-		**line = '\0';
-		(*line)++;
-	}
-	else
-		*line = &tmp[ft_strlen(tmp)];
-	return (pars_commands(tmp));
+	quantity = get_quantity(line);
+	if (!(argv = (char**)ft_memalloc((sizeof(char*)) * (quantity + 1))))
+		malloc_error();
+	pars_commands(tmp, argv);
+	return (argv);
 }
 
-void execute_command(char **command, t_hash_table *table)
+void		execute_command(char **command, t_hash_table *table)
 {
 	pid_t	pid;
 	int		status;
@@ -120,10 +123,10 @@ void execute_command(char **command, t_hash_table *table)
 		error("Fork error");
 	else
 	{
-			pid = wait(&status);
-			if (pid == -1)
-				error("Problem with Wait");
-			if (status)
-				error("Something with child process");
+		pid = wait(&status);
+		if (pid == -1)
+			error("Problem with Wait");
+		if (status)
+			error("Something with child process");
 	}
 }

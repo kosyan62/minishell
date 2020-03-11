@@ -10,20 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft/includes/hash.h>
 #include "mshheader.h"
 #include <dirent.h>
 
-char **g_env;
+char			**g_env;
 
-void del_one_command(void *foo, size_t bar)
+void			del_one_command(void *foo, size_t bar)
 {
 	bar = 0;
-	free(*(char***)foo);
+	ft_abortalloc(*(char***)foo);
 	free(foo);
 }
 
-char **get_cmd_path()
+char			**get_cmd_path(void)
 {
 	char	*cmd_str;
 	char	**cmd_arr;
@@ -34,14 +33,14 @@ char **get_cmd_path()
 		cmd_str = ft_strdup("/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin");
 	cmd_arr = ft_strsplit(cmd_str, ':');
 	free(cmd_str);
-	return(cmd_arr);
+	return (cmd_arr);
 }
 
-void msh_fill_table(t_hash_table *table, char *str)
+void			msh_fill_table(t_hash_table *table, char *str)
 {
-	char *cmd_fullname;
-	char	*tmp;
-	DIR	*dir;
+	char			*cmd_fullname;
+	char			*tmp;
+	DIR				*dir;
 	struct dirent	*entry;
 
 	if (!(dir = opendir(str)))
@@ -60,11 +59,11 @@ void msh_fill_table(t_hash_table *table, char *str)
 	closedir(dir);
 }
 
-t_hash_table *cmd_path_init()
+t_hash_table	*cmd_path_init(void)
 {
-	t_hash_table *result;
-	char **cmd_paths;
-	void *tobefree;
+	t_hash_table	*result;
+	char			**cmd_paths;
+	void			*tobefree;
 
 	result = new_hash_table(1500);
 	cmd_paths = get_cmd_path();
@@ -75,14 +74,14 @@ t_hash_table *cmd_path_init()
 		cmd_paths++;
 	}
 	ft_abortalloc(tobefree);
-	return result;
+	return (result);
 }
 
-void	minishell()
+void			minishell(void)
 {
-	char 	*line;
-	t_list	*commands;
-	t_hash_table *ht_cmd_path;
+	char			*line;
+	t_list			*commands;
+	t_hash_table	*ht_cmd_path;
 
 	ht_cmd_path = cmd_path_init();
 	while (1)
@@ -90,22 +89,20 @@ void	minishell()
 		ft_printf("$>");
 		line = msh_readline();
 		if (!line)
-			break;
+			break ;
 		commands = parse_line(line);
 		run_commands(commands, ht_cmd_path);
 		ft_lstdel(&commands, del_one_command);
-		free(line);
 	}
 	del_hash_table(ht_cmd_path);
 }
 
-int 	main()
+int				main(void)
 {
 	extern char **environ;
 
 	g_env = environ;
 	g_env = ft_copy_env();
 	minishell();
-
-	return 0;
+	return (0);
 }

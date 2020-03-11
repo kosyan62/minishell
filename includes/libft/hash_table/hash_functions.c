@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hash.h"
+#include "libft.h"
 
 unsigned int	hash_funct(char *string, int a, int count)
 {
@@ -38,7 +38,7 @@ void			ht_insert(t_hash_table *table, char *key, char *value)
 
 	if (!(item = new_ht_item(key, value)))
 		malloc_error();
-	index = hash_funct(key, WEIGHT, table->size);
+	index = hash_funct(key, HASH_WEIGHT, table->size);
 	cur = table->items[index];
 	table->items[index] = item;
 	table->items[index]->next = cur;
@@ -49,7 +49,7 @@ char			*ht_search(t_hash_table *table, char *key)
 	unsigned int	index;
 	t_ht_item		*item;
 
-	index = hash_funct(key, WEIGHT, table->size);
+	index = hash_funct(key, HASH_WEIGHT, table->size);
 	item = table->items[index];
 	while (item)
 	{
@@ -63,7 +63,7 @@ char			*ht_search(t_hash_table *table, char *key)
 void			ht_print_whole(t_hash_table *table)
 {
 	unsigned int			i;
-	t_ht_item	*cur;
+	t_ht_item				*cur;
 
 	i = 0;
 	while (i != table->size)
@@ -83,10 +83,10 @@ void			ht_print_whole(t_hash_table *table)
 	}
 }
 
-void hash_table_resize(t_hash_table **table)
+void			hash_table_resize(t_hash_table **table)
 {
-	t_hash_table *new;
-	size_t i;
+	t_hash_table	*new;
+	size_t			i;
 
 	i = 0;
 	new = new_hash_table((*table)->size * 2);

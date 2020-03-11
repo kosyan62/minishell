@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hash.h"
+#include "libft.h"
 
 t_ht_item		*new_ht_item(char *key, char *value)
 {
@@ -75,7 +75,7 @@ void			ht_del_elem(t_hash_table *table, char *key)
 	unsigned int	index;
 	t_ht_item		*item;
 
-	index = hash_funct(key, WEIGHT, table->size);
+	index = hash_funct(key, HASH_WEIGHT, table->size);
 	item = table->items[index];
 	while (item)
 	{

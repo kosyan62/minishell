@@ -15,20 +15,24 @@
 
 extern char **g_env;
 
-void	ft_print_env()
+void		ft_rewrite_hash_table(t_hash_table **table)
+{
+	;
+}
+
+void		ft_print_env(void)
 {
 	char **tmp_env;
 
 	tmp_env = g_env;
-
-	while(*tmp_env)
+	while (*tmp_env)
 	{
 		ft_printf("%s\n", *tmp_env);
 		tmp_env++;
 	}
 }
 
-size_t var_count_from_cmd(char **command)
+size_t		var_count_from_cmd(char **command)
 {
 	size_t i;
 
@@ -37,7 +41,8 @@ size_t var_count_from_cmd(char **command)
 		i++;
 	return (i);
 }
-char **ft_fill_new_env(char **command)
+
+char		**ft_fill_new_env(char **command)
 {
 	size_t i;
 	size_t k;
@@ -55,24 +60,24 @@ char **ft_fill_new_env(char **command)
 	return (&command[k]);
 }
 
-void	ft_ignore_env(char **command, t_hash_table *table)
+void		ft_ignore_env(char **command, t_hash_table **table)
 {
 	char **tmp_env;
 
 	tmp_env = g_env;
 	command = ft_fill_new_env(command);
 	if (!*command)
-			ft_print_env();
+		ft_print_env();
 	else
-		execute_command(command, table);
+		execute_command(command, *table);
 	ft_abortalloc(g_env);
 	g_env = tmp_env;
 }
 
-char **ft_copy_env()
+char		**ft_copy_env(void)
 {
-	size_t i;
-	char **cpy_env;
+	size_t	i;
+	char	**cpy_env;
 
 	i = 0;
 	while (g_env[i])
@@ -86,17 +91,17 @@ char **ft_copy_env()
 		i++;
 	}
 	cpy_env[i] = NULL;
-	return cpy_env;
+	return (cpy_env);
 }
 
-void ft_unset_env(char *name)
+void		ft_unset_env(char *name, t_hash_table **table)
 {
 	char	**src;
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!(src = ft_get_env(name)))
-		return;
+		return ;
 	free(src[i]);
 	while (src[i])
 	{
@@ -104,17 +109,18 @@ void ft_unset_env(char *name)
 		i++;
 	}
 	src[i] = NULL;
+	if (!ft_strcmp(name, "PATH"))
+		ft_rewrite_hash_table(table);
 }
 
-void ft_unset_cpy_env(char **command, t_hash_table *table)
+void		ft_unset_cpy_env(char **command, t_hash_table *table)
 {
 	char **cpy_env;
 
 	if (!(*command))
 	{
 		ft_printf("env: option requires an argument -- u\n");
-		ft_printf("usage: env [-i] [-u name]\n"
-				  "           [name=value ...]\n");
+		ft_printf("usage: env [-i] [-u name]\n\t\t\t[name=value ...]\n");
 		return ;
 	}
 	else
@@ -133,7 +139,7 @@ void ft_unset_cpy_env(char **command, t_hash_table *table)
 	}
 }
 
-void ft_env_warg(char **command, t_hash_table *table)
+void		ft_env_warg(char **command, t_hash_table **table)
 {
 	if (command[1][1] == 'i')
 	{
@@ -145,14 +151,13 @@ void ft_env_warg(char **command, t_hash_table *table)
 		ft_unset_cpy_env(&command[2], table);
 		return ;
 	}
-	ft_printf("usage: env [-i] [-u name]\n"
-			  "           [name=value ...]\n");
+	ft_printf("usage: env [-i] [-u name]\n\t\t\t[name=value ...]\n");
 }
 
-void ft_add_env(char *command)
+void		ft_add_env(char *command)
 {
-	size_t i;
-	char **new_env;
+	size_t	i;
+	char	**new_env;
 
 	i = 0;
 	while (g_env[i])
@@ -171,13 +176,15 @@ void ft_add_env(char *command)
 	g_env = new_env;
 }
 
-void ft_change_env(char **cur_env, char *command)
+void		ft_change_env(char **cur_env, char *command, t_hash_table **table)
 {
 	free(*cur_env);
 	*cur_env = ft_strdup(command);
+	if (ft_strnstr(command, "PATH", 4))
+		ft_rewrite_hash_table(table);
 }
 
-char	**ft_setenv(char **command)
+char		**ft_setenv(char **command, t_hash_table **table)
 {
 	char **var;
 	char **cur;
@@ -188,62 +195,60 @@ char	**ft_setenv(char **command)
 		if (var[1] == NULL)
 		{
 			ft_abortalloc(var);
-			return command;
+			return (command);
 		}
 		if (!(cur = ft_get_env(*var)))
 			ft_add_env(*command);
 		else
-			ft_change_env(cur, *command);
+			ft_change_env(cur, *command, table);
 		ft_abortalloc(var);
 		command++;
 	}
 	return (command);
 }
 
-void ft_env_set_temp(char **command, t_hash_table *table)
+void		ft_env_set_temp(char **command, t_hash_table **table)
 {
 	char **cpy_env;
 
 	cpy_env = g_env;
 	g_env = ft_copy_env();
-	command = ft_setenv(command);
+	command = ft_setenv(command, table);
 	if (*command)
-	execute_command(command, table);
+		execute_command(command, *table);
 	else
 		ft_print_env();
 	ft_abortalloc(g_env);
 	g_env = cpy_env;
+	ft_rewrite_hash_table(table);
 }
 
-void ft_env(char **command, t_hash_table *table)
+void		ft_env(char **command, t_hash_table **table)
 {
-
 	if (!command[1])
 		ft_print_env();
 	else if (command[1][0] == '-')
 		ft_env_warg(command, table);
 	else
 		ft_env_set_temp(&command[1], table);
-
 }
 
-void ft_setenv_cmd(char **command)
+void		ft_setenv_cmd(char **command, t_hash_table **table)
 {
-	command = ft_setenv(&command[1]);
+	command = ft_setenv(&command[1], table);
 	if (*command)
 		ft_printf("usage: setenv [name=value ...]\n");
 }
 
-void ft_unsetenv(char **command)
+void		ft_unsetenv(char **command, t_hash_table **table)
 {
 	while (*command)
-		ft_unset_env(*command++);
+		ft_unset_env(*command++, table);
 	if (*command)
 		ft_printf("usage: unsetenv [name ...]\n");
-	//TODO make reloading hash table when "PATH" changes
 }
 
-void ch_dir_to(char *dir)
+void		ch_dir_to(char *dir)
 {
 	char **newpath;
 
@@ -253,18 +258,18 @@ void ch_dir_to(char *dir)
 			ft_printf("cd: permission denied: %s\n", dir);
 		else
 			ft_printf("cd: no such file or directory: %s\n", dir);
-		return;
+		return ;
 	}
 	newpath = ft_memalloc(sizeof(char *) * 2);
 	newpath[1] = getcwd(NULL, 1024);
 	*newpath = ft_strjoin("PWD=", newpath[1]);
 	free(newpath[1]);
 	newpath[1] = NULL;
-	ft_setenv(newpath);
+	ft_setenv(newpath, NULL);
 	ft_abortalloc(newpath);
 }
 
-void	msh_cd(char **command)
+void		msh_cd(char **command)
 {
 	if (command[1])
 	{
@@ -279,27 +284,27 @@ void	msh_cd(char **command)
 	}
 }
 
-void msh_echo(char **command)
+void		msh_echo(char **command)
 {
 	command++;
-		while (*command)
-		{
-			ft_printf("%s ", *command);
-			command++;
-		}
+	while (*command)
+	{
+		ft_printf("%s ", *command);
+		command++;
+	}
 	ft_printf("\n");
 }
 
-void env_commands(char **command, t_hash_table *table)
-	{
-		if (ft_strcmp(*command, "env") == 0)
-			ft_env(command, table);
-		else if (ft_strcmp(*command, "unsetenv") == 0)
-			ft_unsetenv(command);
-		else if (ft_strcmp(*command, "setenv") == 0)
-			ft_setenv_cmd(command);
-		else if (ft_strcmp(*command, "cd") == 0)
-			msh_cd(command);
-		else if (ft_strcmp(*command, "echo") == 0)
-			msh_echo(command);
-	}
+void		env_commands(char **command, t_hash_table *table)
+{
+	if (ft_strcmp(*command, "env") == 0)
+		ft_env(command, &table);
+	else if (ft_strcmp(*command, "unsetenv") == 0)
+		ft_unsetenv(command, &table);
+	else if (ft_strcmp(*command, "setenv") == 0)
+		ft_setenv_cmd(command, &table);
+	else if (ft_strcmp(*command, "cd") == 0)
+		msh_cd(command);
+	else if (ft_strcmp(*command, "echo") == 0)
+		msh_echo(command);
+}

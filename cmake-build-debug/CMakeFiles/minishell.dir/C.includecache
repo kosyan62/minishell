@@ -24,9 +24,13 @@ unistd.h
 libft/includes/hash.h
 -
 
-/Users/mgena/CLionProjects/minishell/src/env_commands.c
-dirent.h
--
+/Users/mgena/CLionProjects/minishell/src/command.c
 mshheader.h
 /Users/mgena/CLionProjects/minishell/src/mshheader.h
+sys/wait.h
+-
+errno.h
+-
+stdio.h
+-
 

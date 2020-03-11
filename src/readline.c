@@ -13,13 +13,10 @@
 #include "mshheader.h"
 #include <limits.h>
 #include <unistd.h>
-#include <libft/includes/hash.h>
-
 
 extern char	**g_env;
 
-/*Get pointer in environ, which equal name*/
-char	**ft_get_env(char *name)
+char		**ft_get_env(char *name)
 {
 	size_t len;
 	size_t i;
@@ -38,10 +35,10 @@ char	**ft_get_env(char *name)
 	return (NULL);
 }
 
-char	*ft_get_env_value(char *name)
+char		*ft_get_env_value(char *name)
 {
 	char	*res;
-	char 	**place;
+	char	**place;
 
 	if (!(place = ft_get_env(name)))
 		return (NULL);
@@ -55,7 +52,7 @@ char	*ft_get_env_value(char *name)
 	}
 }
 
-void	get_tilda(char **line, size_t i)
+void		get_tilda(char **line, size_t i)
 {
 	char *tmp;
 	char *tmp2;
@@ -80,10 +77,10 @@ void	get_tilda(char **line, size_t i)
 	*line = tmp2;
 }
 
-size_t	get_dollr_var(char *src, char **dst)
+size_t		get_dollr_var(char *src, char **dst)
 {
-	size_t i;
-	char *tmp;
+	size_t	i;
+	char	*tmp;
 
 	i = 0;
 	if (!ft_isalpha(src[i]) && src[i] != '_')
@@ -99,15 +96,15 @@ size_t	get_dollr_var(char *src, char **dst)
 	free(tmp);
 	if (*dst == NULL)
 		*dst = ft_strnew(1);
-	return i + 1;
+	return (i + 1);
 }
 
-void	get_dollar(char **line, size_t  i)
+void		get_dollar(char **line, size_t i)
 {
-	char *tmp;
-	char *tmp2;
-	char *str[3];
-	size_t sp;
+	char	*tmp;
+	char	*tmp2;
+	char	*str[3];
+	size_t	sp;
 
 	tmp = *line;
 	tmp[i] = '\0';
@@ -124,10 +121,12 @@ void	get_dollar(char **line, size_t  i)
 	*line = tmp2;
 }
 
-char *get_expansion(char *line)
+char		*get_expansion(char *line)
 {
 	size_t i;
 
+	if (!g_env)
+		return (line);
 	i = 0;
 	while (line[i] != 0)
 	{
@@ -137,10 +136,10 @@ char *get_expansion(char *line)
 			get_dollar(&line, i);
 		i++;
 	}
-	return line;
+	return (line);
 }
 
-char	*msh_readline()
+char		*msh_readline(void)
 {
 	char	*line;
 
@@ -152,16 +151,14 @@ char	*msh_readline()
 		get_next_line(-1, &line);
 		return (NULL);
 	}
-	if (*g_env)
-		line = get_expansion(line);
-return (line);
+	return (line);
 }
 
-t_list	*parse_line(char *line)
+t_list		*parse_line(char *line)
 {
-	char *original;
-	char **one_command;
-	t_list *commands;
+	char	*original;
+	char	**one_command;
+	t_list	*commands;
 
 	commands = NULL;
 	original = line;
@@ -178,23 +175,26 @@ t_list	*parse_line(char *line)
 			error("parse error near `;;'");
 		}
 		one_command = get_command(&line);
-		ft_lstadd(&commands, ft_lstnew(&one_command, sizeof(&one_command)));
+		ft_lstaddend(&commands, ft_lstnew(&one_command, sizeof(&one_command)));
 	}
+	free(original);
 	return (commands);
 }
 
-void run_commands(t_list *command, t_hash_table *ht_cmd_path)
+void		run_commands(t_list *command, t_hash_table *ht_cmd_path)
 {
 	if (!command)
 		return ;
 	while (command)
 	{
-		if (ft_strcmp(**(char ***)(command->content), "cd") == 0 || ft_strcmp(**(char ***)command->content, "setenv") == 0 ||
-			ft_strcmp(**(char ***)command->content, "unsetenv") == 0 || ft_strcmp(**(char ***)command->content, "env") == 0 ||
-            ft_strcmp(**(char ***)command->content, "echo") == 0)
-			env_commands(*(char ***) command->content, ht_cmd_path);
+		if (ft_strcmp(**(char ***)(command->content), "cd") == 0 ||
+			ft_strcmp(**(char ***)command->content, "setenv") == 0 ||
+			ft_strcmp(**(char ***)command->content, "unsetenv") == 0 ||
+			ft_strcmp(**(char ***)command->content, "env") == 0 ||
+			ft_strcmp(**(char ***)command->content, "echo") == 0)
+			env_commands(*(char ***)command->content, ht_cmd_path);
 		else
-			execute_command(*(char ***) command->content, ht_cmd_path);
+			execute_command(*(char ***)command->content, ht_cmd_path);
 		command = command->next;
 	}
 }

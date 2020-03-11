@@ -23,8 +23,7 @@ add_executable(minishell
         includes/libft/hash_table/hash_functions.c
         includes/libft/hash_table/hash_init.c
         includes/libft/includes/get_next_line.h
-        includes/libft/includes/hash.h
-        includes/libft/includes/ldbl_header.h
+		includes/libft/includes/ldbl_header.h
         includes/libft/includes/libft.h
         includes/libft/includes/libftprintf.h
         includes/libft/errors.c

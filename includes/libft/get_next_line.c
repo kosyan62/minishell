@@ -17,7 +17,7 @@ int		write_line(char **to, char *from)
 	size_t bytes_to_write;
 
 	bytes_to_write = ft_strclen(from, '\n');
-	if(!(*to = ft_strnew(bytes_to_write + 2)))
+	if (!(*to = ft_strnew(bytes_to_write + 2)))
 		return (-1);
 	ft_strncpy(*to, from, bytes_to_write);
 	ft_memmove(from, (&(from[bytes_to_write + 1])),

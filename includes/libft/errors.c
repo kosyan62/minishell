@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <errno.h>
 
-void malloc_error()
+void	malloc_error(void)
 {
 	ft_printf("error: memory have not been allocated");
 	exit(ENOMEM);

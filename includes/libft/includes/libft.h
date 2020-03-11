@@ -15,12 +15,27 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+# define HASH_WEIGHT 12
+
 typedef	struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct			s_ht_item
+{
+	char				*key;
+	char				*value;
+	struct s_ht_item	*next;
+}						t_ht_item;
+
+typedef	struct
+{
+	unsigned int		size;
+	t_ht_item			**items;
+}						t_hash_table;
 
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
@@ -84,6 +99,7 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstaddend(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_printf(const char *format, ...);
@@ -92,5 +108,14 @@ _Bool				ft_isspace(int ch);
 int					get_next_line(const int fd, char **line);
 long				ft_pow(int a, int b);
 void				malloc_error();
+t_ht_item			*new_ht_item(char *key, char *value);
+t_hash_table		*new_hash_table(unsigned int size);
+void				ht_del_item(t_ht_item *item);
+void				del_hash_table(t_hash_table *table);
+unsigned int		hash_funct(char *string, int a, int count);
+void				ht_insert(t_hash_table *table, char *key, char *value);
+char				*ht_search(t_hash_table *table, char *key);
+void				ht_del_elem(t_hash_table *table, char *key);
+void				ht_print_whole(t_hash_table *table);
 
 #endif

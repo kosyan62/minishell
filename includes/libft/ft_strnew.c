@@ -16,7 +16,7 @@ char	*ft_strnew(size_t size)
 {
 	char *res;
 
-	if(!(res = ft_memalloc(size + 1)))
+	if (!(res = ft_memalloc(size + 1)))
 		return (NULL);
 	return (res);
 }
