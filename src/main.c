@@ -14,6 +14,7 @@
 #include <dirent.h>
 
 char			**g_env;
+int				signa;
 
 void			del_one_command(void *foo, size_t bar)
 {
@@ -103,10 +104,16 @@ void			minishell(void)
 	del_hash_table(ht_cmd_path);
 }
 
+void handler()
+{
+	ft_printf("\n");
+	minishell();
+}
 int				main(void)
 {
 	extern char **environ;
 
+	signal(SIGINT, handler);
 	g_env = environ;
 	g_env = ft_copy_env();
 	minishell();

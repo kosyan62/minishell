@@ -18,13 +18,9 @@ libft.h
 unistd.h
 -
 
-/Users/mgena/CLionProjects/minishell/src/command.c
+/Users/mgena/CLionProjects/minishell/src/main.c
 mshheader.h
 /Users/mgena/CLionProjects/minishell/src/mshheader.h
-sys/wait.h
--
-errno.h
--
-stdio.h
+dirent.h
 -
 

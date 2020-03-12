@@ -170,9 +170,9 @@ t_list		*parse_line(char *line)
 			break ;
 		if (*line == ';')
 		{
-			free(line);
+			ft_printf("parse error near `;;'\n");
 			free(original);
-			error("parse error near `;;'");
+			return (NULL);
 		}
 		one_command = get_command(&line);
 		ft_lstaddend(&commands, ft_lstnew(&one_command, sizeof(&one_command)));
@@ -185,7 +185,7 @@ void		run_commands(t_list *command, t_hash_table **ht_cmd_path)
 {
 	if (!command)
 		return ;
-	while (command)
+	while (command && **(char***)command->content)
 	{
 		if (ft_strcmp(**(char ***)(command->content), "cd") == 0 ||
 			ft_strcmp(**(char ***)command->content, "setenv") == 0 ||

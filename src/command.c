@@ -41,18 +41,18 @@ size_t		get_quantity(char **line)
 	quantity = 0;
 	while (**line != '\0' && **line != ';')
 	{
-		if (!ft_isspace(**line) && flag == 0)
+		if (!ft_isspace(**line))
 		{
-			if (**line == '"')
-				*line = jump_quotes(*line);
-			flag = 1;
-			quantity++;
+			if (flag == 0)
+			{
+				if (**line == '"')
+					*line = jump_quotes(*line);
+				flag = 1;
+				quantity ++;
+			}
 		}
 		else
-		{
-			*line = jump_whitespace(*line);
 			flag = 0;
-		}
 		(*line)++;
 	}
 	if (**line)
@@ -114,7 +114,8 @@ void		execute_command(char **command, t_hash_table *table)
 	{
 		if (execve(filename, command, g_env) == -1)
 		{
-			ft_printf("no such command: %s\n%i\n", *command, errno);
+			ft_printf("no such command: %s\n", *command);
+			exit(EXIT_FAILURE);
 		}
 	}
 	else if (pid < 0)
