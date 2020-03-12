@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../includes/libft/includes/hash.h
-libft.h
-../includes/libft/includes/libft.h
-
 ../includes/libft/includes/libft.h
 unistd.h
 -
@@ -20,8 +16,6 @@ stdlib.h
 libft.h
 ../includes/libft.h
 unistd.h
--
-libft/includes/hash.h
 -
 
 /Users/mgena/CLionProjects/minishell/src/command.c

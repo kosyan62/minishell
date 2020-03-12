@@ -28,7 +28,10 @@ char			**get_cmd_path(void)
 	char	**cmd_arr;
 
 	if (*g_env)
-		cmd_str = ft_get_env_value("PATH");
+	{
+		if (!(cmd_str = ft_get_env_value("PATH")))
+			return (NULL);
+	}
 	else
 		cmd_str = ft_strdup("/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin");
 	cmd_arr = ft_strsplit(cmd_str, ':');
@@ -45,7 +48,6 @@ void			msh_fill_table(t_hash_table *table, char *str)
 
 	if (!(dir = opendir(str)))
 	{
-		ft_printf("no such command: %s\n", str);
 		return ;
 	}
 	while ((entry = readdir(dir)) != NULL)
@@ -66,7 +68,11 @@ t_hash_table	*cmd_path_init(void)
 	void			*tobefree;
 
 	result = new_hash_table(1500);
-	cmd_paths = get_cmd_path();
+	if (!(cmd_paths = get_cmd_path()))
+	{
+		del_hash_table(result);
+		return (new_hash_table(0));
+	}
 	tobefree = cmd_paths;
 	while (*cmd_paths)
 	{
@@ -91,7 +97,7 @@ void			minishell(void)
 		if (!line)
 			break ;
 		commands = parse_line(line);
-		run_commands(commands, ht_cmd_path);
+		run_commands(commands, &ht_cmd_path);
 		ft_lstdel(&commands, del_one_command);
 	}
 	del_hash_table(ht_cmd_path);

@@ -261,35 +261,28 @@ CMakeFiles/minishell.dir/includes/libft/get_next_line.c.o: ../includes/libft/inc
 CMakeFiles/minishell.dir/includes/libft/get_next_line.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/includes/libft/get_next_line.c.o: ../includes/libft/get_next_line.c
 
-CMakeFiles/minishell.dir/includes/libft/hash_table/hash_functions.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/includes/libft/hash_table/hash_functions.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/includes/libft/hash_table/hash_functions.c.o: ../includes/libft/hash_table/hash_functions.c
 
-CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o: ../includes/libft/hash_table/hash_init.c
 
-CMakeFiles/minishell.dir/src/command.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/command.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/command.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/command.c.o: ../src/command.c
 
-CMakeFiles/minishell.dir/src/env_commands.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/env_commands.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/env_commands.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/env_commands.c.o: ../src/env_commands.c
 
-CMakeFiles/minishell.dir/src/errors.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/errors.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/errors.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/errors.c.o: ../src/errors.c
 
-CMakeFiles/minishell.dir/src/main.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/main.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/main.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/main.c.o: ../src/main.c
 
-CMakeFiles/minishell.dir/src/readline.c.o: ../includes/libft/includes/hash.h
 CMakeFiles/minishell.dir/src/readline.c.o: ../includes/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/readline.c.o: ../includes/mshheader.h
 CMakeFiles/minishell.dir/src/readline.c.o: ../src/readline.c

@@ -17,7 +17,8 @@ extern char **g_env;
 
 void		ft_rewrite_hash_table(t_hash_table **table)
 {
-	;
+	del_hash_table(*table);
+	*table = cmd_path_init();
 }
 
 void		ft_print_env(void)
@@ -32,48 +33,48 @@ void		ft_print_env(void)
 	}
 }
 
-size_t		var_count_from_cmd(char **command)
-{
-	size_t i;
-
-	i = 0;
-	while (command[i] && ft_strchr(command[i], '='))
-		i++;
-	return (i);
-}
-
-char		**ft_fill_new_env(char **command)
-{
-	size_t i;
-	size_t k;
-
-	k = 0;
-	i = var_count_from_cmd(command);
-	if (!(g_env = ft_memalloc(sizeof(*g_env) * (i + 1))))
-		malloc_error();
-	while (i != k)
-	{
-		g_env[k] = ft_strdup(command[k]);
-		k++;
-	}
-	g_env[k] = NULL;
-	return (&command[k]);
-}
-
-void		ft_ignore_env(char **command, t_hash_table **table)
-{
-	char **tmp_env;
-
-	tmp_env = g_env;
-	command = ft_fill_new_env(command);
-	if (!*command)
-		ft_print_env();
-	else
-		execute_command(command, *table);
-	ft_abortalloc(g_env);
-	g_env = tmp_env;
-}
-
+//size_t		var_count_from_cmd(char **command)
+//{
+//	size_t i;
+//
+//	i = 0;
+//	while (command[i] && ft_strchr(command[i], '='))
+//		i++;
+//	return (i);
+//}
+//
+//char		**ft_fill_new_env(char **command)
+//{
+//	size_t i;
+//	size_t k;
+//
+//	k = 0;
+//	i = var_count_from_cmd(command);
+//	if (!(g_env = ft_memalloc(sizeof(*g_env) * (i + 1))))
+//		malloc_error();
+//	while (i != k)
+//	{
+//		g_env[k] = ft_strdup(command[k]);
+//		k++;
+//	}
+//	g_env[k] = NULL;
+//	return (&command[k]);
+//}
+//
+//void		ft_ignore_env(char **command, t_hash_table *table)
+//{
+//	char **tmp_env;
+//
+//	tmp_env = g_env;
+//	command = ft_fill_new_env(command);
+//	if (!*command)
+//		ft_print_env();
+//	else
+//		execute_command(command, table);
+//	ft_abortalloc(g_env);
+//	g_env = tmp_env;
+//}
+//
 char		**ft_copy_env(void)
 {
 	size_t	i;
@@ -112,47 +113,47 @@ void		ft_unset_env(char *name, t_hash_table **table)
 	if (!ft_strcmp(name, "PATH"))
 		ft_rewrite_hash_table(table);
 }
-
-void		ft_unset_cpy_env(char **command, t_hash_table *table)
-{
-	char **cpy_env;
-
-	if (!(*command))
-	{
-		ft_printf("env: option requires an argument -- u\n");
-		ft_printf("usage: env [-i] [-u name]\n\t\t\t[name=value ...]\n");
-		return ;
-	}
-	else
-	{
-		cpy_env = g_env;
-		g_env = ft_copy_env();
-		ft_unset_env(*command);
-		if (!(*(++command)))
-		{
-			ft_print_env();
-		}
-		else
-			execute_command(command, table);
-		ft_abortalloc(g_env);
-		g_env = cpy_env;
-	}
-}
-
-void		ft_env_warg(char **command, t_hash_table **table)
-{
-	if (command[1][1] == 'i')
-	{
-		ft_ignore_env(&command[2], table);
-		return ;
-	}
-	if (command[1][1] == 'u')
-	{
-		ft_unset_cpy_env(&command[2], table);
-		return ;
-	}
-	ft_printf("usage: env [-i] [-u name]\n\t\t\t[name=value ...]\n");
-}
+//
+//void		ft_unset_cpy_env(char **command, t_hash_table *table)
+//{
+//	char **cpy_env;
+//
+//	if (!(*command))
+//	{
+//		ft_printf("env: option requires an argument -- u\n");
+//		ft_printf("usage: env [-i] [-u name]\n\t\t\t[name=value ...]\n");
+//		return ;
+//	}
+//	else
+//	{
+//		cpy_env = g_env;
+//		g_env = ft_copy_env();
+//		ft_unset_env(*command);
+//		if (!(*(++command)))
+//		{
+//			ft_print_env();
+//		}
+//		else
+//			execute_command(command, table);
+//		ft_abortalloc(g_env);
+//		g_env = cpy_env;
+//	}
+//}
+//
+//void		ft_env_warg(char **command, t_hash_table *table)
+//{
+//	if (command[1][1] == 'i')
+//	{
+//		ft_ignore_env(&command[2], table);
+//		return ;
+//	}
+//	if (command[1][1] == 'u')
+//	{
+//		ft_unset_cpy_env(&command[2], table);
+//		return ;
+//	}
+//	ft_printf("usage: env [-i] [-u name]\n\t\t\t[name=value ...]\n");
+//}
 
 void		ft_add_env(char *command)
 {
@@ -176,12 +177,10 @@ void		ft_add_env(char *command)
 	g_env = new_env;
 }
 
-void		ft_change_env(char **cur_env, char *command, t_hash_table **table)
+void		ft_change_env(char **cur_env, char *command)
 {
 	free(*cur_env);
 	*cur_env = ft_strdup(command);
-	if (ft_strnstr(command, "PATH", 4))
-		ft_rewrite_hash_table(table);
 }
 
 char		**ft_setenv(char **command, t_hash_table **table)
@@ -200,37 +199,40 @@ char		**ft_setenv(char **command, t_hash_table **table)
 		if (!(cur = ft_get_env(*var)))
 			ft_add_env(*command);
 		else
-			ft_change_env(cur, *command, table);
+			ft_change_env(cur, *command);
+		if (!ft_strcmp(*var, "PATH"))
+			ft_rewrite_hash_table(table);
 		ft_abortalloc(var);
 		command++;
 	}
 	return (command);
 }
 
-void		ft_env_set_temp(char **command, t_hash_table **table)
-{
-	char **cpy_env;
+//void		ft_env_set_temp(char **command, t_hash_table *table)
+//{
+//	char **cpy_env;
+//
+//	cpy_env = g_env;
+//	g_env = ft_copy_env();
+//	command = ft_setenv(command);
+//	if (*command)
+//		execute_command(command, table);
+//	else
+//		ft_print_env();
+//	ft_abortalloc(g_env);
+//	g_env = cpy_env;
+//}
 
-	cpy_env = g_env;
-	g_env = ft_copy_env();
-	command = ft_setenv(command, table);
-	if (*command)
-		execute_command(command, *table);
-	else
-		ft_print_env();
-	ft_abortalloc(g_env);
-	g_env = cpy_env;
-	ft_rewrite_hash_table(table);
-}
-
-void		ft_env(char **command, t_hash_table **table)
+void		ft_env(char **command, t_hash_table *table)
 {
 	if (!command[1])
 		ft_print_env();
-	else if (command[1][0] == '-')
-		ft_env_warg(command, table);
-	else
-		ft_env_set_temp(&command[1], table);
+	if (!table)
+		return;
+//	else if (command[1][0] == '-')
+//		ft_env_warg(command, table);
+//	else
+//		ft_env_set_temp(&command[1], table);
 }
 
 void		ft_setenv_cmd(char **command, t_hash_table **table)
@@ -295,14 +297,14 @@ void		msh_echo(char **command)
 	ft_printf("\n");
 }
 
-void		env_commands(char **command, t_hash_table *table)
+void		env_commands(char **command, t_hash_table **table)
 {
 	if (ft_strcmp(*command, "env") == 0)
-		ft_env(command, &table);
+		ft_env(command, *table);
 	else if (ft_strcmp(*command, "unsetenv") == 0)
-		ft_unsetenv(command, &table);
+		ft_unsetenv(command, table);
 	else if (ft_strcmp(*command, "setenv") == 0)
-		ft_setenv_cmd(command, &table);
+		ft_setenv_cmd(command, table);
 	else if (ft_strcmp(*command, "cd") == 0)
 		msh_cd(command);
 	else if (ft_strcmp(*command, "echo") == 0)

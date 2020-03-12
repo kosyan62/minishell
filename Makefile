@@ -1,7 +1,7 @@
 NAME=minishell
 CFILE=main.c readline.c errors.c command.c env_commands.c
 OFILE=$(CFILE:%.c=%.o)
-CC= gcc -Iincludes/ -Iincludes/libft/includes -g -Wall -Wextra
+CC= gcc -Iincludes/ -Iincludes/libft/includes -g -Wall -Wextra -Werror
 INCL=$(addprefix includes/, mshheader.h)
 VPATH= . src/ includes/ includes/libft includes/libft/includes includes/libft/hash_table
 LIB=libft.a

@@ -336,9 +336,6 @@
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/get_next_line.h">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/hash.h">
-			<Option target="minishell"/>
-		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/ldbl_header.h">
 			<Option target="minishell"/>
 		</Unit>

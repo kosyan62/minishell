@@ -49,6 +49,8 @@ char			*ht_search(t_hash_table *table, char *key)
 	unsigned int	index;
 	t_ht_item		*item;
 
+	if (table->size == 0)
+		return (NULL);
 	index = hash_funct(key, HASH_WEIGHT, table->size);
 	item = table->items[index];
 	while (item)

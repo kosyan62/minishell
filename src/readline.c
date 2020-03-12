@@ -181,7 +181,7 @@ t_list		*parse_line(char *line)
 	return (commands);
 }
 
-void		run_commands(t_list *command, t_hash_table *ht_cmd_path)
+void		run_commands(t_list *command, t_hash_table **ht_cmd_path)
 {
 	if (!command)
 		return ;
@@ -194,7 +194,7 @@ void		run_commands(t_list *command, t_hash_table *ht_cmd_path)
 			ft_strcmp(**(char ***)command->content, "echo") == 0)
 			env_commands(*(char ***)command->content, ht_cmd_path);
 		else
-			execute_command(*(char ***)command->content, ht_cmd_path);
+			execute_command(*(char ***)command->content, *ht_cmd_path);
 		command = command->next;
 	}
 }

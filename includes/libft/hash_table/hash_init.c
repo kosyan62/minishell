@@ -35,6 +35,12 @@ t_hash_table	*new_hash_table(unsigned int size)
 	i = 0;
 	if (!(table = ft_memalloc(sizeof(t_hash_table))))
 		return (NULL);
+	if (!size)
+	{
+		table->size = 0;
+		table->items = NULL;
+		return (table);
+	}
 	if (!(items = ft_memalloc(sizeof(t_ht_item*) * size)))
 		return (NULL);
 	while (i != size)

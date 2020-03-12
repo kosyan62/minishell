@@ -105,7 +105,6 @@ char		**get_command(char **line)
 void		execute_command(char **command, t_hash_table *table)
 {
 	pid_t	pid;
-	int		status;
 	char	*filename;
 
 	if (!(filename = ht_search(table, *command)))
@@ -115,18 +114,15 @@ void		execute_command(char **command, t_hash_table *table)
 	{
 		if (execve(filename, command, g_env) == -1)
 		{
-			ft_printf("no such command: %s\n", *command);
-			return ;
+			ft_printf("no such command: %s\n%i\n", *command, errno);
 		}
 	}
 	else if (pid < 0)
 		error("Fork error");
 	else
 	{
-		pid = wait(&status);
+		wait(0);
 		if (pid == -1)
 			error("Problem with Wait");
-		if (status)
-			error("Something with child process");
 	}
 }
