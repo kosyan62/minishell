@@ -99,4 +99,4 @@ add_executable(minishell
 		src/env_commands.c
 		src/errors.c
 		src/main.c
-		src/readline.c)
+		src/readline.c src/general_bultins.c src/env_funct.c src/env_tmp_funct.c src/env_extra_funct.c src/extension.c src/minishell.c)

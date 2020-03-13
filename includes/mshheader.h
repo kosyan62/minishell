@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 17:22:22 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/09 22:04:30 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/13 18:03:33 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@
 
 # include "libft.h"
 # include <unistd.h>
+# include <dirent.h>
 
-typedef	struct		s_string
-{
-	char			*ptr;
-	size_t			len;
-	size_t			maxlen;
-}					t_string;
-
+void				minishell(void);
 char				*msh_readline();
+char				*get_expansion(char *line);
+void				ft_env(char **command, t_hash_table *table);
+char				**ft_setenv(char **command, t_hash_table **table);
+void				ft_setenv_cmd(char **command, t_hash_table **table);
+void				ft_unsetenv(char **command, t_hash_table **table);
+void				ft_unset_tmp(char *name, t_hash_table **table);
+void				ft_print_env(void);
+void				ft_ignore_env(char **command, t_hash_table *table);
+void				ft_env_warg(char **command, t_hash_table *table);
+void				ft_rewrite_hash_table(t_hash_table **table);
 t_list				*parse_line(char *line);
 void				error(char *line);
 char				**get_command(char **line);
@@ -37,5 +42,6 @@ char				**ft_copy_env();
 char				*get_expansion(char *line);
 char				*jump_quotes(char *line);
 t_hash_table		*cmd_path_init(void);
+char				*jump_whitespace(char *line);
 
 #endif

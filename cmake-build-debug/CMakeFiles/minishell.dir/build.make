@@ -1201,6 +1201,71 @@ CMakeFiles/minishell.dir/src/readline.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/minishell.dir/src/readline.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mgena/CLionProjects/minishell/src/readline.c -o CMakeFiles/minishell.dir/src/readline.c.s
 
+CMakeFiles/minishell.dir/src/general_bultins.c.o: CMakeFiles/minishell.dir/flags.make
+CMakeFiles/minishell.dir/src/general_bultins.c.o: ../src/general_bultins.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/minishell.dir/src/general_bultins.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/minishell.dir/src/general_bultins.c.o   -c /Users/mgena/CLionProjects/minishell/src/general_bultins.c
+
+CMakeFiles/minishell.dir/src/general_bultins.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/minishell.dir/src/general_bultins.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mgena/CLionProjects/minishell/src/general_bultins.c > CMakeFiles/minishell.dir/src/general_bultins.c.i
+
+CMakeFiles/minishell.dir/src/general_bultins.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/minishell.dir/src/general_bultins.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mgena/CLionProjects/minishell/src/general_bultins.c -o CMakeFiles/minishell.dir/src/general_bultins.c.s
+
+CMakeFiles/minishell.dir/src/env_funct.c.o: CMakeFiles/minishell.dir/flags.make
+CMakeFiles/minishell.dir/src/env_funct.c.o: ../src/env_funct.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/minishell.dir/src/env_funct.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/minishell.dir/src/env_funct.c.o   -c /Users/mgena/CLionProjects/minishell/src/env_funct.c
+
+CMakeFiles/minishell.dir/src/env_funct.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/minishell.dir/src/env_funct.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mgena/CLionProjects/minishell/src/env_funct.c > CMakeFiles/minishell.dir/src/env_funct.c.i
+
+CMakeFiles/minishell.dir/src/env_funct.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/minishell.dir/src/env_funct.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mgena/CLionProjects/minishell/src/env_funct.c -o CMakeFiles/minishell.dir/src/env_funct.c.s
+
+CMakeFiles/minishell.dir/src/env_tmp_funct.c.o: CMakeFiles/minishell.dir/flags.make
+CMakeFiles/minishell.dir/src/env_tmp_funct.c.o: ../src/env_tmp_funct.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/minishell.dir/src/env_tmp_funct.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/minishell.dir/src/env_tmp_funct.c.o   -c /Users/mgena/CLionProjects/minishell/src/env_tmp_funct.c
+
+CMakeFiles/minishell.dir/src/env_tmp_funct.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/minishell.dir/src/env_tmp_funct.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mgena/CLionProjects/minishell/src/env_tmp_funct.c > CMakeFiles/minishell.dir/src/env_tmp_funct.c.i
+
+CMakeFiles/minishell.dir/src/env_tmp_funct.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/minishell.dir/src/env_tmp_funct.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mgena/CLionProjects/minishell/src/env_tmp_funct.c -o CMakeFiles/minishell.dir/src/env_tmp_funct.c.s
+
+CMakeFiles/minishell.dir/src/env_extra_funct.c.o: CMakeFiles/minishell.dir/flags.make
+CMakeFiles/minishell.dir/src/env_extra_funct.c.o: ../src/env_extra_funct.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/minishell.dir/src/env_extra_funct.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/minishell.dir/src/env_extra_funct.c.o   -c /Users/mgena/CLionProjects/minishell/src/env_extra_funct.c
+
+CMakeFiles/minishell.dir/src/env_extra_funct.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/minishell.dir/src/env_extra_funct.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mgena/CLionProjects/minishell/src/env_extra_funct.c > CMakeFiles/minishell.dir/src/env_extra_funct.c.i
+
+CMakeFiles/minishell.dir/src/env_extra_funct.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/minishell.dir/src/env_extra_funct.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mgena/CLionProjects/minishell/src/env_extra_funct.c -o CMakeFiles/minishell.dir/src/env_extra_funct.c.s
+
+CMakeFiles/minishell.dir/src/extension.c.o: CMakeFiles/minishell.dir/flags.make
+CMakeFiles/minishell.dir/src/extension.c.o: ../src/extension.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/minishell.dir/src/extension.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/minishell.dir/src/extension.c.o   -c /Users/mgena/CLionProjects/minishell/src/extension.c
+
+CMakeFiles/minishell.dir/src/extension.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/minishell.dir/src/extension.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mgena/CLionProjects/minishell/src/extension.c > CMakeFiles/minishell.dir/src/extension.c.i
+
+CMakeFiles/minishell.dir/src/extension.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/minishell.dir/src/extension.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mgena/CLionProjects/minishell/src/extension.c -o CMakeFiles/minishell.dir/src/extension.c.s
+
 # Object files for target minishell
 minishell_OBJECTS = \
 "CMakeFiles/minishell.dir/includes/libft/ft_printf/colour_extra.c.o" \
@@ -1290,7 +1355,12 @@ minishell_OBJECTS = \
 "CMakeFiles/minishell.dir/src/env_commands.c.o" \
 "CMakeFiles/minishell.dir/src/errors.c.o" \
 "CMakeFiles/minishell.dir/src/main.c.o" \
-"CMakeFiles/minishell.dir/src/readline.c.o"
+"CMakeFiles/minishell.dir/src/readline.c.o" \
+"CMakeFiles/minishell.dir/src/general_bultins.c.o" \
+"CMakeFiles/minishell.dir/src/env_funct.c.o" \
+"CMakeFiles/minishell.dir/src/env_tmp_funct.c.o" \
+"CMakeFiles/minishell.dir/src/env_extra_funct.c.o" \
+"CMakeFiles/minishell.dir/src/extension.c.o"
 
 # External object files for target minishell
 minishell_EXTERNAL_OBJECTS =
@@ -1383,9 +1453,14 @@ minishell: CMakeFiles/minishell.dir/src/env_commands.c.o
 minishell: CMakeFiles/minishell.dir/src/errors.c.o
 minishell: CMakeFiles/minishell.dir/src/main.c.o
 minishell: CMakeFiles/minishell.dir/src/readline.c.o
+minishell: CMakeFiles/minishell.dir/src/general_bultins.c.o
+minishell: CMakeFiles/minishell.dir/src/env_funct.c.o
+minishell: CMakeFiles/minishell.dir/src/env_tmp_funct.c.o
+minishell: CMakeFiles/minishell.dir/src/env_extra_funct.c.o
+minishell: CMakeFiles/minishell.dir/src/extension.c.o
 minishell: CMakeFiles/minishell.dir/build.make
 minishell: CMakeFiles/minishell.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Linking C executable minishell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Linking C executable minishell"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minishell.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

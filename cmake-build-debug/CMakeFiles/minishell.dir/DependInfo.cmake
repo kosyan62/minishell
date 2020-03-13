@@ -89,7 +89,12 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/mgena/CLionProjects/minishell/includes/libft/hash_table/hash_init.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/includes/libft/hash_table/hash_init.c.o"
   "/Users/mgena/CLionProjects/minishell/src/command.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/command.c.o"
   "/Users/mgena/CLionProjects/minishell/src/env_commands.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/env_commands.c.o"
+  "/Users/mgena/CLionProjects/minishell/src/env_extra_funct.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/env_extra_funct.c.o"
+  "/Users/mgena/CLionProjects/minishell/src/env_funct.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/env_funct.c.o"
+  "/Users/mgena/CLionProjects/minishell/src/env_tmp_funct.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/env_tmp_funct.c.o"
   "/Users/mgena/CLionProjects/minishell/src/errors.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/errors.c.o"
+  "/Users/mgena/CLionProjects/minishell/src/extension.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/extension.c.o"
+  "/Users/mgena/CLionProjects/minishell/src/general_bultins.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/general_bultins.c.o"
   "/Users/mgena/CLionProjects/minishell/src/main.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/main.c.o"
   "/Users/mgena/CLionProjects/minishell/src/readline.c" "/Users/mgena/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir/src/readline.c.o"
   )

@@ -354,10 +354,28 @@
 		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_commands.c">
 			<Option target="minishell"/>
 		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_extra_funct.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_funct.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_tmp_funct.c">
+			<Option target="minishell"/>
+		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/src/errors.c">
 			<Option target="minishell"/>
 		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/src/extension.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/src/general_bultins.c">
+			<Option target="minishell"/>
+		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/src/main.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/Users/mgena/CLionProjects/minishell/src/minishell.cpp">
 			<Option target="minishell"/>
 		</Unit>
 		<Unit filename="/Users/mgena/CLionProjects/minishell/src/readline.c">

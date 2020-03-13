@@ -2418,6 +2418,87 @@ src/env_commands.c.s:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_commands.c.s
 .PHONY : src/env_commands.c.s
 
+src/env_extra_funct.o: src/env_extra_funct.c.o
+
+.PHONY : src/env_extra_funct.o
+
+# target to build an object file
+src/env_extra_funct.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_extra_funct.c.o
+.PHONY : src/env_extra_funct.c.o
+
+src/env_extra_funct.i: src/env_extra_funct.c.i
+
+.PHONY : src/env_extra_funct.i
+
+# target to preprocess a source file
+src/env_extra_funct.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_extra_funct.c.i
+.PHONY : src/env_extra_funct.c.i
+
+src/env_extra_funct.s: src/env_extra_funct.c.s
+
+.PHONY : src/env_extra_funct.s
+
+# target to generate assembly for a file
+src/env_extra_funct.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_extra_funct.c.s
+.PHONY : src/env_extra_funct.c.s
+
+src/env_funct.o: src/env_funct.c.o
+
+.PHONY : src/env_funct.o
+
+# target to build an object file
+src/env_funct.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_funct.c.o
+.PHONY : src/env_funct.c.o
+
+src/env_funct.i: src/env_funct.c.i
+
+.PHONY : src/env_funct.i
+
+# target to preprocess a source file
+src/env_funct.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_funct.c.i
+.PHONY : src/env_funct.c.i
+
+src/env_funct.s: src/env_funct.c.s
+
+.PHONY : src/env_funct.s
+
+# target to generate assembly for a file
+src/env_funct.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_funct.c.s
+.PHONY : src/env_funct.c.s
+
+src/env_tmp_funct.o: src/env_tmp_funct.c.o
+
+.PHONY : src/env_tmp_funct.o
+
+# target to build an object file
+src/env_tmp_funct.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_tmp_funct.c.o
+.PHONY : src/env_tmp_funct.c.o
+
+src/env_tmp_funct.i: src/env_tmp_funct.c.i
+
+.PHONY : src/env_tmp_funct.i
+
+# target to preprocess a source file
+src/env_tmp_funct.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_tmp_funct.c.i
+.PHONY : src/env_tmp_funct.c.i
+
+src/env_tmp_funct.s: src/env_tmp_funct.c.s
+
+.PHONY : src/env_tmp_funct.s
+
+# target to generate assembly for a file
+src/env_tmp_funct.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_tmp_funct.c.s
+.PHONY : src/env_tmp_funct.c.s
+
 src/errors.o: src/errors.c.o
 
 .PHONY : src/errors.o
@@ -2444,6 +2525,60 @@ src/errors.s: src/errors.c.s
 src/errors.c.s:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/errors.c.s
 .PHONY : src/errors.c.s
+
+src/extension.o: src/extension.c.o
+
+.PHONY : src/extension.o
+
+# target to build an object file
+src/extension.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/extension.c.o
+.PHONY : src/extension.c.o
+
+src/extension.i: src/extension.c.i
+
+.PHONY : src/extension.i
+
+# target to preprocess a source file
+src/extension.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/extension.c.i
+.PHONY : src/extension.c.i
+
+src/extension.s: src/extension.c.s
+
+.PHONY : src/extension.s
+
+# target to generate assembly for a file
+src/extension.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/extension.c.s
+.PHONY : src/extension.c.s
+
+src/general_bultins.o: src/general_bultins.c.o
+
+.PHONY : src/general_bultins.o
+
+# target to build an object file
+src/general_bultins.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/general_bultins.c.o
+.PHONY : src/general_bultins.c.o
+
+src/general_bultins.i: src/general_bultins.c.i
+
+.PHONY : src/general_bultins.i
+
+# target to preprocess a source file
+src/general_bultins.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/general_bultins.c.i
+.PHONY : src/general_bultins.c.i
+
+src/general_bultins.s: src/general_bultins.c.s
+
+.PHONY : src/general_bultins.s
+
+# target to generate assembly for a file
+src/general_bultins.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/general_bultins.c.s
+.PHONY : src/general_bultins.c.s
 
 src/main.o: src/main.c.o
 
@@ -2763,9 +2898,24 @@ help:
 	@echo "... src/env_commands.o"
 	@echo "... src/env_commands.i"
 	@echo "... src/env_commands.s"
+	@echo "... src/env_extra_funct.o"
+	@echo "... src/env_extra_funct.i"
+	@echo "... src/env_extra_funct.s"
+	@echo "... src/env_funct.o"
+	@echo "... src/env_funct.i"
+	@echo "... src/env_funct.s"
+	@echo "... src/env_tmp_funct.o"
+	@echo "... src/env_tmp_funct.i"
+	@echo "... src/env_tmp_funct.s"
 	@echo "... src/errors.o"
 	@echo "... src/errors.i"
 	@echo "... src/errors.s"
+	@echo "... src/extension.o"
+	@echo "... src/extension.i"
+	@echo "... src/extension.s"
+	@echo "... src/general_bultins.o"
+	@echo "... src/general_bultins.i"
+	@echo "... src/general_bultins.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -6,7 +6,7 @@
 /*   By: mgena <mgena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 18:11:37 by mgena             #+#    #+#             */
-/*   Updated: 2020/03/09 16:16:08 by mgena            ###   ########.fr       */
+/*   Updated: 2020/03/13 17:59:31 by mgena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@
 #include <stdio.h>
 
 extern char **g_env;
-
-char		*jump_whitespace(char *line)
-{
-	while (ft_isspace(*line) && *line)
-		line++;
-	return (line);
-}
 
 char		*jump_quotes(char *line)
 {
@@ -48,7 +41,7 @@ size_t		get_quantity(char **line)
 				if (**line == '"')
 					*line = jump_quotes(*line);
 				flag = 1;
-				quantity ++;
+				quantity++;
 			}
 		}
 		else
