@@ -15,9 +15,7 @@
 char	*ft_for_percent(t_specif spec)
 {
 	char	*str;
-	char	*res;
 
-	res = NULL;
 	str = ft_strnew(2);
 	str[0] = '%';
 	if (spec.wide != 0)

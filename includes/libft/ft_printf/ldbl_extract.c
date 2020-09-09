@@ -28,7 +28,7 @@ char		*ft_get_ldbl(t_specif *spec, long double x)
 		str = (print_float(x, 6));
 	else
 		str = (print_float(x, spec->precision));
-	if (x != x || x == 1. / 0 || x == -1. / 0)
+	if (x != x || x == 1. / 0.0 || x == -1. / 0.0)
 		*spec = ft_spec_when_nan(*spec);
 	if (spec->precision == 0 && spec->sharp == 1 && x == x)
 		str = ft_strjoin(str, ".");

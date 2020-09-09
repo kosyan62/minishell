@@ -15,9 +15,8 @@
 extern char **g_env;
 extern int g_sig;
 
-void			del_one_command(void *foo, size_t bar)
+void			del_one_command(void *foo)
 {
-	bar = 0;
 	ft_abortalloc(*(char***)foo);
 	free(foo);
 }
@@ -100,7 +99,7 @@ void			minishell(void)
 			break ;
 		commands = parse_line(line);
 		run_commands(commands, &ht_cmd_path);
-		ft_lstdel(&commands, del_one_command);
+		ft_lstdel(&commands, (void (*)(void*, size_t))del_one_command);
 	}
 	del_hash_table(ht_cmd_path);
 }

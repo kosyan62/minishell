@@ -21,7 +21,7 @@ CFILE=ft_itoa_base.c ft_printf.c ldbl_extract.c rounding.c type_i_d.c ft_for_p.c
 	ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c\
 	ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_tolower.c\
 	ft_toupper.c ft_wordcount.c ft_realloc.c ft_isspace.c get_next_line.c ft_pow.c colour_extra.c hash_init.c\
-	hash_functions.c
+	hash_functions.c malloc_error.c
 OFILE=$(CFILE:%.c=%.o)
 CC= gcc -Iincludes -Wall -Wextra -Werror
 INCL=$(addprefix includes/, ldbl_header.h libft.h libft_printf.h get_next_line.h)

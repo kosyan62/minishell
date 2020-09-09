@@ -14,10 +14,8 @@
 
 char	*ft_for_string(va_list ap, t_specif spec)
 {
-	int		i;
 	char	*tmp;
 
-	i = -1;
 	tmp = ft_strdup(va_arg(ap, char*));
 	if (tmp == NULL)
 	{

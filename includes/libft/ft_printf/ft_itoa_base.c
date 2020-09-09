@@ -36,7 +36,8 @@ char	*ft_itoa_base(__int128_t n, int base)
 
 	array = "0123456789abcdef";
 	d = ft_countdigits_base(n, base);
-	d = (n < 0) ? ++d : d;
+	if (n < 0)
+	    ++d;	
 	res = ft_strnew(d);
 	if (res == NULL)
 		return (NULL);

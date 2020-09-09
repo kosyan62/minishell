@@ -18,7 +18,8 @@ char	*ft_itoa(int n)
 	char	*res;
 
 	d = ft_countdigits(n);
-	d = (n < 0) ? ++d : d;
+	if (n < 0)
+		++d;
 	res = ft_strnew(d);
 	if (res == NULL)
 		return (NULL);
