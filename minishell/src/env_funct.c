@@ -64,6 +64,6 @@ void		ft_ignore_env(char **command, t_hash_table *table)
 		ft_print_env();
 	else
 		execute_command(command, table);
-	ft_abortalloc(g_env);
+	ft_abortalloc_list(g_env);
 	g_env = tmp_env;
 }

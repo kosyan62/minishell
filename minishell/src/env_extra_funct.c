@@ -25,7 +25,7 @@ void		ft_env_set_temp(char **command, t_hash_table *table)
 		execute_command(command, table);
 	else
 		ft_print_env();
-	ft_abortalloc(g_env);
+	ft_abortalloc_list(g_env);
 	g_env = cpy_env;
 }
 

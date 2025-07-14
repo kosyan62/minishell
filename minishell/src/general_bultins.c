@@ -32,7 +32,7 @@ void		ch_dir_to(char *dir)
 	free(newpath[1]);
 	newpath[1] = NULL;
 	ft_setenv(newpath, NULL);
-	ft_abortalloc(newpath);
+	ft_abortalloc_list(newpath);
 }
 
 void		msh_cd(char **command)

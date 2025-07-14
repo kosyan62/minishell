@@ -35,7 +35,7 @@ void		ft_unset_cpy_env(char **command, t_hash_table *table)
 		}
 		else
 			execute_command(command, table);
-		ft_abortalloc(g_env);
+		ft_abortalloc_list(g_env);
 		g_env = cpy_env;
 	}
 }
@@ -93,7 +93,7 @@ char		**ft_setenv(char **command, t_hash_table **table)
 		var = ft_strsplit(*command, '=');
 		if (var[1] == NULL)
 		{
-			ft_abortalloc(var);
+			ft_abortalloc_list(var);
 			return (command);
 		}
 		if (!(cur = ft_get_env(*var)))
@@ -102,7 +102,7 @@ char		**ft_setenv(char **command, t_hash_table **table)
 			ft_change_env(cur, *command);
 		if (!ft_strcmp(*var, "PATH") && table)
 			ft_rewrite_hash_table(table);
-		ft_abortalloc(var);
+		ft_abortalloc_list(var);
 		command++;
 	}
 	return (command);

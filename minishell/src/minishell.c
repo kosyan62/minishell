@@ -15,9 +15,9 @@
 extern char **g_env;
 extern int g_sig;
 
-void			del_one_command(void *foo)
+void			del_one_command(void *foo, size_t size __attribute__((unused)))
 {
-	ft_abortalloc(*(char***)foo);
+	ft_abortalloc_list(*(char***)foo);
 	free(foo);
 }
 
@@ -78,7 +78,7 @@ t_hash_table	*cmd_path_init(void)
 		msh_fill_table(result, *cmd_paths);
 		cmd_paths++;
 	}
-	ft_abortalloc(tobefree);
+	ft_abortalloc_list(tobefree);
 	return (result);
 }
 
@@ -99,7 +99,7 @@ void			minishell(void)
 			break ;
 		commands = parse_line(line);
 		run_commands(commands, &ht_cmd_path);
-		ft_lstdel(&commands, (void (*)(void*, size_t))del_one_command);
+		ft_lstdel(&commands, del_one_command);
 	}
 	del_hash_table(ht_cmd_path);
 }
