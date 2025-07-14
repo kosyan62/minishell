@@ -8,380 +8,123 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/mgena/CLionProjects/minishell/cmake-build-debug"/>
+				<Option working_dir="/home/kosyan62/CLionProjects/minishell/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/Users/mgena/CLionProjects/minishell/cmake-build-debug"/>
+			<Target title="build_libft">
+				<Option working_dir="/home/kosyan62/CLionProjects/minishell/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/mgena/CLionProjects/minishell/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 build_libft"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="minishell">
-				<Option output="/Users/mgena/CLionProjects/minishell/cmake-build-debug/minishell" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/mgena/CLionProjects/minishell/cmake-build-debug"/>
+				<Option output="/home/kosyan62/CLionProjects/minishell/cmake-build-debug/minishell" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kosyan62/CLionProjects/minishell/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/mgena/CLionProjects/minishell/includes"/>
-					<Add directory="/Users/mgena/CLionProjects/minishell/includes/libft/includes"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/home/kosyan62/CLionProjects/minishell/minishell/includes"/>
+					<Add directory="/home/kosyan62/CLionProjects/minishell/minishell/includes/libft/includes"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 minishell"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 minishell"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="minishell/fast">
-				<Option output="/Users/mgena/CLionProjects/minishell/cmake-build-debug/minishell" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/mgena/CLionProjects/minishell/cmake-build-debug"/>
+				<Option output="/home/kosyan62/CLionProjects/minishell/cmake-build-debug/minishell" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kosyan62/CLionProjects/minishell/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/mgena/CLionProjects/minishell/includes"/>
-					<Add directory="/Users/mgena/CLionProjects/minishell/includes/libft/includes"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/home/kosyan62/CLionProjects/minishell/minishell/includes"/>
+					<Add directory="/home/kosyan62/CLionProjects/minishell/minishell/includes/libft/includes"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 minishell/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/mgena/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 minishell/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/kosyan62/CLionProjects/minishell/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/kosyan62/CLionProjects/minishell/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/kosyan62/CLionProjects/minishell/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/errors.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/includes/mshheader.h">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_abortalloc.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/command.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_atoi.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/env_commands.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_atol.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/env_extra_funct.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_bzero.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/env_funct.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_countdigits.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/env_tmp_funct.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_isalnum.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/errors.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_isalpha.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/extension.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_isascii.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/general_bultins.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_isdigit.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/main.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_isprint.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/minishell.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_isspace.c">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/minishell/src/readline.c">
 			<Option target="minishell"/>
 		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_itoa.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_lstadd.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_lstdel.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_lstdelone.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_lstiter.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_lstmap.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_lstnew.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memalloc.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memccpy.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memchr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memcmp.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memcpy.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memdel.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memmove.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_memset.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_pow.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/colour_extra.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ft_for_p.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ft_itoa_base.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ft_new.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ft_printf.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ldbl_copy.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/ldbl_extract.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/long_math.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/percent.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/rounding.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/type_c.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/type_i_d.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_printf/type_s.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putchar.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putchar_fd.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putendl.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putendl_fd.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putnbr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putnbr_fd.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putstr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_putstr_fd.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_realloc.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strcat.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strchr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strclen.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strclr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strcmp.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strcpy.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strdel.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strdup.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strequ.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_striter.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_striteri.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strjoin.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strlcat.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strlen.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strmap.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strmapi.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strncat.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strncmp.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strncpy.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strnequ.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strnew.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strnstr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strrchr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strsplit.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strstr.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strsub.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_strtrim.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_tolower.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_toupper.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/ft_wordcount.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/get_next_line.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/hash_table/hash_functions.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/hash_table/hash_init.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/get_next_line.h">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/ldbl_header.h">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/libft.h">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/libft/includes/libftprintf.h">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/includes/mshheader.h">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/command.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_commands.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_extra_funct.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_funct.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/env_tmp_funct.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/errors.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/extension.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/general_bultins.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/main.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/minishell.cpp">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/src/readline.c">
-			<Option target="minishell"/>
-		</Unit>
-		<Unit filename="/Users/mgena/CLionProjects/minishell/CMakeLists.txt">
+		<Unit filename="/home/kosyan62/CLionProjects/minishell/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
