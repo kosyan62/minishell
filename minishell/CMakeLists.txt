@@ -14,7 +14,10 @@ include_directories(
         includes
 )
 
-link_libraries(includes/libft/libft.a)
+
+link_libraries(
+        ${CMAKE_CURRENT_SOURCE_DIR}/includes/libft/libft/libft.a
+)
 
 add_executable(minishell
         includes/mshheader.h
@@ -29,3 +32,5 @@ add_executable(minishell
         src/main.c
         src/minishell.c
         src/readline.c)
+
+add_dependencies(minishell libft)

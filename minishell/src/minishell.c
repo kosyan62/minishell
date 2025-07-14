@@ -99,7 +99,8 @@ void			minishell(void)
 			break ;
 		commands = parse_line(line);
 		run_commands(commands, &ht_cmd_path);
-		ft_lstdel(&commands, del_one_command);
+		if (commands)
+			ft_lstdel(&commands, del_one_command);
 	}
 	del_hash_table(ht_cmd_path);
 }
