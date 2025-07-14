@@ -32,6 +32,6 @@ jobs:
           submodules: 'recursive'
       - uses: actions/cache@v4
         with:
-          path: ft_select
+          path: minishell
           key: executable-${{ hashFiles('minishell/**/*') }}
       - run: ./test/smoke_test.sh
