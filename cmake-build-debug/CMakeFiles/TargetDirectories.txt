@@ -1,4 +1,0 @@
-/home/kosyan62/CLionProjects/minishell/cmake-build-debug/CMakeFiles/build_libft.dir
-/home/kosyan62/CLionProjects/minishell/cmake-build-debug/CMakeFiles/minishell.dir
-/home/kosyan62/CLionProjects/minishell/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kosyan62/CLionProjects/minishell/cmake-build-debug/CMakeFiles/rebuild_cache.dir
