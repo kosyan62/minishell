@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Cache executable
+        id: cache-executable
+        uses: actions/cache@v4
+        with:
+          path: minishell
+          key: executable-${{ hashFiles('minishell/**/*') }}
+      - name : Build executable
+        if: steps.cache-executable.outputs.cache-hit != 'true'
+        run: make -C minishell
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - uses: actions/cache@v4
+        with:
+          path: ft_select
+          key: executable-${{ hashFiles('minishell/**/*') }}
+      - run: ./test/smoke_test.sh
